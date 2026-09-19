@@ -28,84 +28,141 @@
 <body>
 
   <!-- ===== Navbar ===== -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <img src="images/common/logo.png" alt="Power Diagnostics" height="40">
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  <nav class="navbar navbar-expand-xl fixed-top" id="mainNav">
+    <div class="container-fluid px-lg-4">
+      
+      <!-- Brand Logo -->
+      <a class="navbar-brand fw-bold me-3" href="index.html">
+        <img src="images/common/logo.png" alt="Power Diagnostics" height="42">
       </a>
 
-      <div class="d-flex align-items-center order-lg-last ms-2">
-        <button class="nav-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" title="Shopping Cart">
+      <!-- Header Search Bar (Desktop) -->
+      <form class="nav-search-form d-none d-lg-block me-3" action="products.html" method="GET">
+        <i class="bi bi-search nav-search-icon"></i>
+        <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+      </form>
+
+      <!-- Action Buttons: Quick Connect & Cart Popup -->
+      <div class="d-flex align-items-center order-xl-last ms-auto gap-2">
+        
+        <!-- Quick Connect Button (Icon Only) -->
+        <button type="button" class="btn-quick-connect shadow-sm" data-bs-toggle="modal" data-bs-target="#quickConnectModal" title="Quick Connect" aria-label="Quick Connect">
+          <i class="bi bi-telephone-outbound-fill"></i>
+        </button>
+
+        <!-- Enquiry Cart Popup Button -->
+        <button class="nav-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas" title="Enquiry Cart">
           <i class="bi bi-cart3"></i>
           <span class="nav-cart-badge">0</span>
         </button>
+
+        <!-- Mobile Toggler -->
         <button class="navbar-toggler border-0 shadow-none ms-1" type="button" data-bs-toggle="collapse"
           data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
 
+      <!-- Header Navigation Tabs -->
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto gap-lg-1">
-          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+        
+        <!-- Mobile Search Bar -->
+        <form class="nav-search-form d-lg-none my-3" action="products.html" method="GET">
+          <i class="bi bi-search nav-search-icon"></i>
+          <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+        </form>
+
+        <ul class="navbar-nav ms-auto gap-xl-1">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">HOME</a>
+          </li>
+
+          <!-- PRODUCTS Mega Dropdown -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="sectorsDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Sectors
+            <a class="nav-link dropdown-toggle active" href="products.html" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              PRODUCTS
             </a>
-            <div class="dropdown-menu dropdown-menu-sectors p-4" aria-labelledby="sectorsDropdown">
+            <div class="dropdown-menu dropdown-menu-custom dropdown-menu-products p-3" aria-labelledby="productsDropdown">
               <div class="row g-3">
-                <div class="col-4">
+                <div class="col-md-6">
+                  <div class="category-menu-title">Testing & Diagnostics</div>
                   <ul class="list-unstyled mb-0">
-                    <li><a class="dropdown-item" href="index.html#sectors">Agriculture</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Aviation</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Contractors & Building</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Construction</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Data Centres</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Education</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Events</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Government</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Partial%20Discharge"><i class="bi bi-activity text-primary"></i> Partial Discharge Analyzers</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Insulation%20Testers"><i class="bi bi-shield-check text-success"></i> High Voltage & Insulation</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Relay%20Test%20Sets"><i class="bi bi-toggles text-warning"></i> Relay & Secondary Injection</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Transformer%20Testers"><i class="bi bi-cpu text-info"></i> Transformer & Winding Testers</a></li>
                   </ul>
                 </div>
-                <div class="col-4">
+                <div class="col-md-6">
+                  <div class="category-menu-title">Power & Metrology</div>
                   <ul class="list-unstyled mb-0">
-                    <li><a class="dropdown-item" href="index.html#sectors">Healthcare</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Hospitality</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Logistics</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Manufacturing</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Mining</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Oil and Gas</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Petrochemical</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Pharmaceuticals</a></li>
-                  </ul>
-                </div>
-                <div class="col-4">
-                  <ul class="list-unstyled mb-0">
-                    <li><a class="dropdown-item" href="index.html#sectors">Renewable Energy</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Retail</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Shipping</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Telecommunications</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Transport</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Utilities</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Warehouse & Distribution</a></li>
-                    <li><a class="dropdown-item" href="index.html#sectors">Water & Wastewater</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Power%20Quality"><i class="bi bi-lightning-charge text-danger"></i> Power Quality Analyzers</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Clamp%20Meters"><i class="bi bi-speedometer2 text-primary"></i> Digital Multimeters & Clamp</a></li>
+                    <li><a class="category-menu-item" href="products.html?category=Thermal%20Cameras"><i class="bi bi-camera-fill text-danger"></i> Thermal & Acoustic Imaging</a></li>
+                    <li><a class="category-menu-item fw-bold text-accent" href="products.html"><i class="bi bi-arrow-right-circle"></i> View Complete Catalog &rarr;</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="rental.html">Rental</a></li>
-          <li class="nav-item"><a class="nav-link" href="supply.html">Supply</a></li>
-          <li class="nav-item"><a class="nav-link" href="repair.html">Repair</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="brands.html">BRANDS</a>
+          </li>
+
+          <!-- SERVICES Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="index.html#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SERVICES
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom dropdown-menu-end shadow-sm" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item py-2" href="index.html#services"><i class="bi bi-activity text-primary me-2"></i> PD Testing</a></li>
+              <li><a class="dropdown-item py-2" href="index.html#services"><i class="bi bi-camera-video-fill text-danger me-2"></i> Thermal Imaging Survey</a></li>
+              <li><a class="dropdown-item py-2" href="index.html#services"><i class="bi bi-cpu text-info me-2"></i> Transformer Testing</a></li>
+              <li><a class="dropdown-item py-2" href="repair.html"><i class="bi bi-tools text-warning me-2"></i> Repair of Electrical Instruments</a></li>
+              <li><a class="dropdown-item py-2" href="rental.html"><i class="bi bi-box-seam text-success me-2"></i> Rental of Testing Kits</a></li>
+              <li><a class="dropdown-item py-2" href="supply.html"><i class="bi bi-cart-check text-primary me-2"></i> Supply of Products</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="rental.html">RENTAL</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="repair.html">REPAIR</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="news-blog.html">NEWS & BLOG</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="career.html">CAREER</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">CONTACT US</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
+  
+  
+  
+  
+  
 
   <!-- ===== Checkout Hero Header ===== -->
   <section class="rental-hero-section d-flex align-items-center" style="min-height: 32vh; padding-top: 6.5rem; padding-bottom: 2.5rem;">
@@ -397,10 +454,97 @@
     </div>
   </div>
 
+
+  <!-- ===== Floating Social Overlays (All Pages) ===== -->
+  <div class="floating-social-overlay">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20would%20like%20to%20inquire%20about%20your%20test%20equipment." 
+      target="_blank" rel="noopener noreferrer" class="social-overlay-btn btn-wa" data-tooltip="WhatsApp Instant Chat" aria-label="WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-overlay-btn btn-li" data-tooltip="Follow on LinkedIn" aria-label="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-overlay-btn btn-fb" data-tooltip="Visit Facebook" aria-label="Facebook">
+      <i class="bi bi-facebook"></i>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-overlay-btn btn-ig" data-tooltip="Follow Instagram" aria-label="Instagram">
+      <i class="bi bi-instagram"></i>
+    </a>
+    <!-- Direct Phone Hotline -->
+    <a href="tel:+971501886773" class="social-overlay-btn btn-phone" data-tooltip="Call Direct: +971 50 188 6773" aria-label="Phone">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+  </div>
+
+  <!-- ===== Quick Connect Pop-up Modal ===== -->
+  <div class="modal fade" id="quickConnectModal" tabindex="-1" aria-labelledby="quickConnectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header bg-dark text-white p-4">
+          <div>
+            <h5 class="modal-title fw-bold" id="quickConnectModalLabel"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Connect</h5>
+            <small class="text-white-50">Speak to an Electrical Diagnostic Specialist in UAE</small>
+          </div>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          
+          <!-- Fast Contact Options -->
+          <div class="row g-2 mb-4">
+            <div class="col-6">
+              <a href="tel:+971501886773" class="btn btn-outline-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-telephone-fill"></i> Direct Call
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20am%20requesting%20a%20fast%20quotation." target="_blank" class="btn btn-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <hr class="my-3 text-muted">
+
+          <!-- Callback / Fast Inquiry Form -->
+          <form id="quickConnectForm" novalidate>
+            <div id="qcSuccessAlert" class="alert alert-success d-none p-2 small mb-3">
+              <i class="bi bi-check-circle-fill me-1"></i> Request received! Our engineer will call you shortly.
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Your Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="qcName" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Phone Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="qcPhone" placeholder="+971 50 123 4567" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Service or Equipment Needed</label>
+              <select class="form-select" id="qcService">
+                <option value="Equipment Rental">Equipment Rental</option>
+                <option value="Purchase / Supply">Purchase / Supply Inquiry</option>
+                <option value="Partial Discharge Testing">PD Diagnostic Testing</option>
+                <option value="Calibration & Repair">Calibration & Repair</option>
+                <option value="Thermal Imaging Survey">Thermal Imaging Survey</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-accent w-100 py-2 fw-bold">
+              <i class="bi bi-send-fill me-1"></i> Request Instant Callback
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== Offcanvas Shopping Cart Drawer ===== -->
   <div class="offcanvas offcanvas-end offcanvas-cart" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="cartOffcanvasLabel"><i class="bi bi-cart3"></i> Shopping Cart</h5>
+    <div class="offcanvas-header bg-light border-bottom">
+      <h5 class="offcanvas-title fw-bold" id="cartOffcanvasLabel"><i class="bi bi-cart3 text-primary me-2"></i> Enquiry Cart</h5>
       <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body p-3 p-md-4 d-flex flex-column">
@@ -409,42 +553,104 @@
       </div>
       <div id="cartDrawerEmpty" class="text-center py-5 d-none">
         <i class="bi bi-cart-x text-muted mb-3" style="font-size: 2.75rem;"></i>
-        <h6 class="fw-bold text-dark">Your cart is empty</h6>
+        <h6 class="fw-bold text-dark">Your enquiry cart is empty</h6>
         <p class="text-muted small mb-3">Browse our test equipment and click Add to Cart.</p>
-        <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3" data-bs-dismiss="offcanvas">Continue Browsing</button>
+        <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3" data-bs-dismiss="offcanvas">Browse Products</button>
       </div>
     </div>
-    <div class="cart-drawer-footer" id="cartDrawerFooter">
+    <div class="cart-drawer-footer border-top p-3 bg-light" id="cartDrawerFooter">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted small fw-semibold">Total Selected:</span>
         <span class="fw-bold text-dark" id="drawerTotalUnits">0 Units</span>
       </div>
       <div class="d-grid gap-2">
-        <a href="checkout.html" class="btn btn-accent-gradient">Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i></a>
-        <a href="cart.html" class="btn btn-outline-primary">View Cart Details</a>
+        <a href="checkout.html" class="btn btn-accent-gradient py-2 fw-bold">Proceed to Official Quotation <i class="bi bi-arrow-right ms-1"></i></a>
+        <a href="cart.html" class="btn btn-outline-primary btn-sm">Review Full Cart</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer-section text-center">
+  <!-- ===== Corporate 4-Column Footer ===== -->
+  <footer class="main-footer">
     <div class="container">
-      <div class="mb-3">
-        <a href="#" class="footer-social" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="#" class="footer-social" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="mailto:sales@power-diagnostics.com" class="footer-social" aria-label="Email"><i
-            class="bi bi-envelope-fill"></i></a>
+      <div class="row g-4 g-lg-5">
+        
+        <!-- Col 1: About & Info -->
+        <div class="col-lg-4">
+          <img src="images/common/logo.png" alt="Power Diagnostics" class="footer-brand-logo">
+          <p class="footer-about-text">
+            Power Diagnostics is your specialized partner for high-voltage testing instruments, predictive partial discharge diagnostics, instrument calibration, equipment rental, and maintenance across UAE and the GCC region.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/971501886773" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-6 col-lg-2">
+          <h5 class="footer-heading">Quick Links</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="bi bi-chevron-right text-primary"></i> Home</a></li>
+            <li><a href="products.html"><i class="bi bi-chevron-right text-primary"></i> Products Catalog</a></li>
+            <li><a href="brands.html"><i class="bi bi-chevron-right text-primary"></i> Brands</a></li>
+            <li><a href="rental.html"><i class="bi bi-chevron-right text-primary"></i> Equipment Rental</a></li>
+            <li><a href="repair.html"><i class="bi bi-chevron-right text-primary"></i> Repair & Calibration</a></li>
+            <li><a href="news-blog.html"><i class="bi bi-chevron-right text-primary"></i> News & Blogs</a></li>
+            <li><a href="career.html"><i class="bi bi-chevron-right text-primary"></i> Career</a></li>
+            <li><a href="contact.html"><i class="bi bi-chevron-right text-primary"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services & Systems -->
+        <div class="col-6 col-lg-3">
+          <h5 class="footer-heading">Services & Systems</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html#pd-diagnostics"><i class="bi bi-chevron-right text-primary"></i> PD Testing Services</a></li>
+            <li><a href="index.html#services"><i class="bi bi-chevron-right text-primary"></i> Thermal Imaging Survey</a></li>
+            <li><a href="products.html?category=Transformer%20Testers"><i class="bi bi-chevron-right text-primary"></i> Transformer Testing</a></li>
+            <li><a href="products.html?category=Power%20Quality"><i class="bi bi-chevron-right text-primary"></i> Power Quality Loggers</a></li>
+            <li><a href="products.html?category=Insulation%20Testers"><i class="bi bi-chevron-right text-primary"></i> HV Insulation Testers</a></li>
+            <li><a href="products.html?category=Relay%20Test%20Sets"><i class="bi bi-chevron-right text-primary"></i> Relay Test Sets</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & GCC Office -->
+        <div class="col-lg-3">
+          <h5 class="footer-heading">Dubai Head Office</h5>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>Office No. 17, Ground Floor, Blue Titan Business Center, Art Tower, Al Raffa, Dubai, UAE</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span><a href="tel:+971501886773" class="footer-contact-link">+971 50 188 6773</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <span><a href="mailto:sales@power-diagnostics.com" class="footer-contact-link">sales@power-diagnostics.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-clock-fill"></i>
+            <span>Mon – Sat: 8:00 AM – 6:00 PM</span>
+          </div>
+        </div>
       </div>
-      <p class="mb-0 small">&copy; 2026 Power Diagnostics. All rights reserved.</p>
+
+      <div class="footer-bottom-bar d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p class="mb-0">&copy; 2026 Power Diagnostics. All Rights Reserved.</p>
+        <p class="mb-0">Industrial Electrical Testing & Diagnostic Engineering Specialists</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Bootstrap 5.3 JS Bundle (Popper included) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
   <!-- Custom Script -->
   <script src="script.js"></script>
+  
 </body>
-
 </html>

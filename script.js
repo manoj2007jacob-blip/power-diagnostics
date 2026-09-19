@@ -1571,9 +1571,49 @@
     }
   }
 
+  // --- Global Header Search Handling ---
+  document.querySelectorAll('.nav-search-form').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = form.querySelector('.nav-search-input');
+      if (input && input.value.trim()) {
+        window.location.href = 'products.html?search=' + encodeURIComponent(input.value.trim());
+      }
+    });
+  });
+
+  // --- Quick Connect Modal Form Handling ---
+  const quickConnectForm = document.getElementById('quickConnectForm');
+  if (quickConnectForm) {
+    quickConnectForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!quickConnectForm.checkValidity()) {
+        quickConnectForm.classList.add('was-validated');
+        return;
+      }
+      const qName = document.getElementById('qcName').value;
+      const qPhone = document.getElementById('qcPhone').value;
+      const qService = document.getElementById('qcService').value;
+
+      const qcAlert = document.getElementById('qcSuccessAlert');
+      if (qcAlert) {
+        qcAlert.classList.remove('d-none');
+      }
+
+      // Also generate direct WhatsApp callback link option
+      const qcWaBtn = document.getElementById('qcDirectWaBtn');
+      if (qcWaBtn) {
+        const waMsg = `*QUICK CONNECT REQUEST - POWER DIAGNOSTICS*\n\nName: ${qName}\nPhone: ${qPhone}\nService/Product Needed: ${qService}`;
+        qcWaBtn.href = `https://wa.me/971501886773?text=${encodeURIComponent(waMsg)}`;
+      }
+
+      setTimeout(function() {
+        quickConnectForm.reset();
+        quickConnectForm.classList.remove('was-validated');
+      }, 3000);
+    });
+  }
+
   // Run on page load
   initProductDetailsPage();
 })();
-
-
-
