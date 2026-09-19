@@ -73,6 +73,15 @@
     });
   });
 
+  // Topbar search input escape key handler
+  document.querySelectorAll(".nav-search-input").forEach(function (input) {
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        input.blur();
+      }
+    });
+  });
+
   // --- Contact form opens email client ---
   const form = document.getElementById("contactForm");
 
@@ -1571,6 +1580,404 @@
     }
   }
 
+  // ============================================
+  // Header Search Autocomplete Engine
+  // ============================================
+  const PRODUCTS_CATALOG_MASTER = [
+    {
+      id: 'hioki-3280-10f',
+      name: 'AC Clamp Meter 3280-10F',
+      brand: 'Hioki',
+      category: 'Clamp Meters',
+      model: 'CM3280-10F',
+      image: 'images/equipment/hioki-3280-10f.jpg',
+      desc: 'Rugged 1000A AC pocket clamp meter with -25°C to 65°C broad temperature range.'
+    },
+    {
+      id: 'hioki-lr8450',
+      name: 'Temperature & Data Logger LR8450',
+      brand: 'Hioki',
+      category: 'Data Loggers',
+      model: 'LR8450-01',
+      image: 'images/equipment/hioki-lr8450.jpg',
+      desc: 'High-speed modular multichannel data logger for voltage, strain, and temperature.'
+    },
+    {
+      id: 'fluke-117',
+      name: 'Fluke 117 True RMS Multimeter',
+      brand: 'Fluke',
+      category: 'Digital Multimeters',
+      model: 'FLUKE-117',
+      image: 'images/equipment/fluke-117.jpg',
+      desc: 'Electricians True-RMS multimeter with VoltAlert non-contact voltage detection.'
+    },
+    {
+      id: 'fluke-1736',
+      name: 'Fluke 1736 Three-Phase Power Logger',
+      brand: 'Fluke',
+      category: 'Power Quality',
+      model: 'FLUKE-1736',
+      image: 'images/equipment/fluke-1736.jpg',
+      desc: 'Comprehensive 3-phase power logger for energy load studies and harmonics.'
+    },
+    {
+      id: 'fluke-810j',
+      name: 'Fluke 810 Vibration Tester',
+      brand: 'Fluke',
+      category: 'Diagnostics & Sensors',
+      model: 'FLUKE-810',
+      image: 'images/equipment/fluke-810j.jpg',
+      desc: 'Advanced vibration tester identifying mechanical bearing defects and unbalance.'
+    },
+    {
+      id: 'fluke-438',
+      name: 'Fluke 438-II Power Quality & Motor Analyzer',
+      brand: 'Fluke',
+      category: 'Power Quality',
+      model: 'FLUKE-438-II',
+      image: 'images/equipment/fluke-438.jpg',
+      desc: '3-phase analyzer measuring electrical power quality metrics and motor mechanical output.'
+    },
+    {
+      id: 'fluke-1550c',
+      name: 'Fluke 1550C 5kV Digital Insulation Tester',
+      brand: 'Fluke',
+      category: 'Insulation Testers',
+      model: 'FLUKE-1550C',
+      image: 'images/equipment/fluke-1550c.jpg',
+      desc: 'Digital high-voltage insulation tester up to 5kV for switchgear and power transformers.'
+    },
+    {
+      id: 'megger-csu600a1',
+      name: 'Megger CSU600A Current Injection Test Set',
+      brand: 'Megger',
+      category: 'Relay Test Sets',
+      model: 'CSU600A',
+      image: 'images/equipment/meggeri-csu600a1.jpg',
+      desc: 'High-current supply unit for breaker tripping, transformer turns ratio, and heat runs.'
+    },
+    {
+      id: 'omicron-ct-sb2',
+      name: 'OMICRON CT SB2 Switch Box',
+      brand: 'OMICRON',
+      category: 'Transformer Testers',
+      model: 'CT-SB2',
+      image: 'images/equipment/omicron-ct-sb2.jpg',
+      desc: 'Automated multi-ratio current transformer switch box for OMICRON CT Analyzer.'
+    },
+    {
+      id: 'omicron-cpc100',
+      name: 'OMICRON CPC 100 Multi-functional Test Set',
+      brand: 'OMICRON',
+      category: 'Relay Test Sets',
+      model: 'CPC-100',
+      image: 'images/equipment/omicron-ct-sb2.jpg',
+      desc: 'Universal primary injection test system for substation transformers and CT/VTs.'
+    },
+    {
+      id: 'hioki-pw4001',
+      name: 'Hioki PW4001 Precision Power Analyzer',
+      brand: 'Hioki',
+      category: 'Power Quality',
+      model: 'PW4001',
+      image: 'images/equipment/hioki-pw4001.jpg',
+      desc: 'High-accuracy 4-channel power analyzer with 600 kHz bandwidth and harmonic logging.'
+    },
+    {
+      id: 'sverker-780',
+      name: 'Programma SVERKER 780 Relay Test Set',
+      brand: 'Megger',
+      category: 'Relay Test Sets',
+      model: 'SVERKER-780',
+      image: 'images/equipment/sverker-780.jpg',
+      desc: 'Secondary current injection test set for single-phase and multi-phase protective relays.'
+    },
+    {
+      id: 'vanguard-trm-203',
+      name: 'Vanguard TRM-203 Transformer Winding Meter',
+      brand: 'Vanguard',
+      category: 'Transformer Testers',
+      model: 'TRM-203',
+      image: 'images/equipment/vanguard-trm-203.jpg',
+      desc: '3-phase 20A transformer winding resistance meter with rapid automatic demagnetization.'
+    },
+    {
+      id: 'rigol-dp712',
+      name: 'Rigol DP712 Programmable DC Power Supply',
+      brand: 'Rigol',
+      category: 'Power Supplies',
+      model: 'DP712',
+      image: 'images/equipment/rigol-dp712.jpg',
+      desc: 'Single-channel 50V/3A 150W high-performance linear programmable bench power supply.'
+    },
+    {
+      id: 'freja-546',
+      name: 'FREJA 546 Secondary Injection Relay Test Set',
+      brand: 'Megger',
+      category: 'Relay Test Sets',
+      model: 'FREJA-546',
+      image: 'images/equipment/freja-546.jpg',
+      desc: 'Touchscreen multi-channel relay test set for complex protection schemes and calibration.'
+    },
+    {
+      id: 'dilo-sf6',
+      name: 'DILO SF6 Gas Leakage Imaging Detector',
+      brand: 'DILO',
+      category: 'Gas & Thermal Imaging',
+      model: 'SF6-LEAKPOINTER',
+      image: 'images/equipment/sf6-detector.jpg',
+      desc: 'Cordless corona discharge leak detector for SF6 high-voltage GIS switchgear.'
+    },
+    {
+      id: 'sf6-detector',
+      name: 'SF6 Optical Gas Leakage Imaging Camera',
+      brand: 'DILO',
+      category: 'Gas & Thermal Imaging',
+      model: 'SF6-CAM',
+      image: 'images/equipment/sf6-detector.jpg',
+      desc: 'Optical gas imaging infrared camera for pinpointing SF6 leaks in live substations.'
+    },
+    {
+      id: 'exfo-720',
+      name: 'EXFO OTDR-720 Optical Network Tester',
+      brand: 'EXFO',
+      category: 'Fiber Optic Testers',
+      model: 'OTDR-720',
+      image: 'images/equipment/otdr-exfo-720.jpg',
+      desc: 'Handheld optical reflectometer for LAN, FTTA, and data center fiber diagnostics.'
+    },
+    {
+      id: 'triplett-ml200',
+      name: 'Triplett ML200 4-Wire Milliohm Meter',
+      brand: 'Triplett',
+      category: 'Low Resistance Testers',
+      model: 'ML200',
+      image: 'images/equipment/triplett-ml200.jpg',
+      desc: '4-wire Kelvin test method milliohm meter for contacts, bonds, and busbar resistance.'
+    },
+    {
+      id: 'triplett-m6600',
+      name: 'Triplett M6600 5kV Insulation Tester',
+      brand: 'Triplett',
+      category: 'Insulation Testers',
+      model: 'M6600',
+      image: 'images/equipment/triplett-m6600.jpg',
+      desc: 'High-voltage digital insulation tester measuring up to 60 GΩ at test voltages to 5000V.'
+    },
+    {
+      id: 'sebakmt-easyloc',
+      name: 'SebaKMT Easyloc Underground Cable Locator',
+      brand: 'SebaKMT',
+      category: 'Cable Fault Location',
+      model: 'EASYLOC',
+      image: 'images/equipment/sebakmt-easyloc.jpg',
+      desc: 'Fast and reliable underground power cable and metallic pipe locator kit.'
+    }
+  ];
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  function initHeaderSearchAutocomplete() {
+    const searchForms = document.querySelectorAll('.nav-search-form');
+
+    searchForms.forEach(function(form) {
+      const input = form.querySelector('.nav-search-input');
+      if (!input) return;
+
+      let dropdown = form.querySelector('.nav-search-autocomplete');
+      if (!dropdown) {
+        dropdown = document.createElement('div');
+        dropdown.className = 'nav-search-autocomplete';
+        form.appendChild(dropdown);
+      }
+
+      let activeIndex = -1;
+
+      function renderResults() {
+        const query = input.value.trim().toLowerCase();
+        if (query.length === 0) {
+          dropdown.classList.remove('show');
+          dropdown.innerHTML = '';
+          activeIndex = -1;
+          return;
+        }
+
+        const matches = PRODUCTS_CATALOG_MASTER.filter(function(item) {
+          return (
+            item.name.toLowerCase().includes(query) ||
+            item.brand.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query) ||
+            (item.model && item.model.toLowerCase().includes(query)) ||
+            (item.desc && item.desc.toLowerCase().includes(query))
+          );
+        });
+
+        // Sort: items starting with query first
+        matches.sort(function(a, b) {
+          const aStarts = a.name.toLowerCase().startsWith(query) || a.brand.toLowerCase().startsWith(query);
+          const bStarts = b.name.toLowerCase().startsWith(query) || b.brand.toLowerCase().startsWith(query);
+          if (aStarts && !bStarts) return -1;
+          if (!aStarts && bStarts) return 1;
+          return 0;
+        });
+
+        const topMatches = matches.slice(0, 5);
+
+        if (topMatches.length === 0) {
+          dropdown.innerHTML = `
+            <div class="search-ac-empty">
+              <i class="bi bi-search"></i>
+              <div class="fw-bold text-dark mb-1">No products found for "${input.value.trim()}"</div>
+              <small class="text-muted d-block mb-3">Try checking spelling or search a brand/model</small>
+              <a href="products.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                Browse Full Catalog
+              </a>
+            </div>
+          `;
+        } else {
+          let html = `
+            <div class="search-ac-header">
+              <span>Matching Products</span>
+              <span class="search-ac-header-count">${matches.length} Result${matches.length > 1 ? 's' : ''}</span>
+            </div>
+            <div class="search-ac-list">
+          `;
+
+          topMatches.forEach(function(item, idx) {
+            html += `
+              <div class="search-ac-item ${idx === activeIndex ? 'active' : ''}" data-id="${item.id}" data-name="${item.name}" data-brand="${item.brand}" data-category="${item.category}" data-image="${item.image}">
+                <div class="search-ac-img">
+                  <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="search-ac-info">
+                  <div class="search-ac-title">${highlightMatch(item.name, query)}</div>
+                  <div class="search-ac-meta">
+                    <span class="search-ac-brand">${item.brand}</span>
+                    <span>•</span>
+                    <span>${item.category}</span>
+                    ${item.model ? `<span>•</span><span class="search-ac-model">${item.model}</span>` : ''}
+                  </div>
+                </div>
+                <button type="button" class="search-ac-cart-btn btn-ac-add-cart" data-id="${item.id}" data-name="${item.name}" data-brand="${item.brand}" data-category="${item.category}" data-image="${item.image}" title="Quick Add to Cart">
+                  <i class="bi bi-cart-plus"></i>
+                </button>
+              </div>
+            `;
+          });
+
+          html += `
+            </div>
+            <div class="search-ac-footer">
+              <a href="products.html?search=${encodeURIComponent(query)}">
+                <span>View all ${matches.length} results in Catalog</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          `;
+
+          dropdown.innerHTML = html;
+
+          // Bind item clicks
+          dropdown.querySelectorAll('.search-ac-item').forEach(function(itemEl) {
+            itemEl.addEventListener('click', function(e) {
+              if (e.target.closest('.search-ac-cart-btn')) return;
+              const pId = itemEl.getAttribute('data-id');
+              window.location.href = `product-details.html?id=${encodeURIComponent(pId)}`;
+            });
+          });
+
+          // Bind quick cart buttons
+          dropdown.querySelectorAll('.btn-ac-add-cart').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              const p = {
+                id: btn.getAttribute('data-id'),
+                name: btn.getAttribute('data-name'),
+                brand: btn.getAttribute('data-brand'),
+                category: btn.getAttribute('data-category'),
+                image: btn.getAttribute('data-image')
+              };
+              addToCart(p, 1);
+              const original = btn.innerHTML;
+              btn.innerHTML = '<i class="bi bi-check2"></i>';
+              btn.classList.add('bg-success', 'text-white');
+              setTimeout(function() {
+                btn.innerHTML = original;
+                btn.classList.remove('bg-success', 'text-white');
+              }, 1200);
+            });
+          });
+        }
+
+        dropdown.classList.add('show');
+      }
+
+      dropdown.addEventListener('mousedown', function(e) {
+        // Prevent input blur before click event executes
+        e.preventDefault();
+      });
+
+      input.addEventListener('input', function() {
+        activeIndex = -1;
+        renderResults();
+      });
+
+      input.addEventListener('focus', function() {
+        if (input.value.trim().length > 0) {
+          renderResults();
+        }
+      });
+
+      input.addEventListener('keydown', function(e) {
+        const items = dropdown.querySelectorAll('.search-ac-item');
+        if (!dropdown.classList.contains('show') || items.length === 0) {
+          if (e.key === 'Escape') {
+            input.blur();
+          }
+          return;
+        }
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = (activeIndex + 1) % items.length;
+          items.forEach(function(it, i) {
+            it.classList.toggle('active', i === activeIndex);
+          });
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = (activeIndex - 1 + items.length) % items.length;
+          items.forEach(function(it, i) {
+            it.classList.toggle('active', i === activeIndex);
+          });
+        } else if (e.key === 'Enter') {
+          if (activeIndex > -1 && items[activeIndex]) {
+            e.preventDefault();
+            const pId = items[activeIndex].getAttribute('data-id');
+            window.location.href = `product-details.html?id=${encodeURIComponent(pId)}`;
+          }
+        } else if (e.key === 'Escape') {
+          dropdown.classList.remove('show');
+          input.blur();
+        }
+      });
+    });
+
+    // Close all search dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-search-form')) {
+        document.querySelectorAll('.nav-search-autocomplete').forEach(function(d) {
+          d.classList.remove('show');
+        });
+      }
+    });
+  }
+
   // --- Global Header Search Handling ---
   document.querySelectorAll('.nav-search-form').forEach(function(form) {
     form.addEventListener('submit', function(e) {
@@ -1616,4 +2023,5 @@
 
   // Run on page load
   initProductDetailsPage();
+  initHeaderSearchAutocomplete();
 })();

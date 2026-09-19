@@ -49,6 +49,20 @@
   <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
   
   <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
+  
+  <!-- ===== Global Navbar (Header - Main & Header - Tabs) ===== -->
   <nav class="navbar navbar-expand-xl fixed-top" id="mainNav">
     <div class="container-fluid px-lg-4">
       
@@ -58,9 +72,10 @@
       </a>
 
       <!-- Header Search Bar (Desktop) -->
-      <form class="nav-search-form d-none d-lg-block me-3" action="products.html" method="GET">
+      <form class="nav-search-form d-none d-lg-block me-3" action="products.html" method="GET" autocomplete="off">
         <i class="bi bi-search nav-search-icon"></i>
-        <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+        <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands..." autocomplete="off">
+        <div class="nav-search-autocomplete"></div>
       </form>
 
       <!-- Action Buttons: Quick Connect & Cart Popup -->
@@ -88,9 +103,10 @@
       <div class="collapse navbar-collapse" id="navMenu">
         
         <!-- Mobile Search Bar -->
-        <form class="nav-search-form d-lg-none my-3" action="products.html" method="GET">
+        <form class="nav-search-form d-lg-none my-3" action="products.html" method="GET" autocomplete="off">
           <i class="bi bi-search nav-search-icon"></i>
-          <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+          <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands..." autocomplete="off">
+          <div class="nav-search-autocomplete"></div>
         </form>
 
         <ul class="navbar-nav ms-auto gap-xl-1">
@@ -169,6 +185,13 @@
       </div>
     </div>
   </nav>
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -586,9 +609,9 @@
   <div class="modal fade" id="quickConnectModal" tabindex="-1" aria-labelledby="quickConnectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
-        <div class="modal-header bg-dark text-white p-4">
+        <div class="modal-header modal-header-corporate p-3 p-sm-4 text-white">
           <div>
-            <h5 class="modal-title fw-bold" id="quickConnectModalLabel"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Connect</h5>
+            <h5 class="modal-title fw-bold text-white mb-0" id="quickConnectModalLabel"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Connect</h5>
             <small class="text-white-50">Speak to an Electrical Diagnostic Specialist in UAE</small>
           </div>
           <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -596,14 +619,14 @@
         <div class="modal-body p-4">
           
           <!-- Fast Contact Options -->
-          <div class="row g-2 mb-4">
+          <div class="row g-2 mb-3">
             <div class="col-6">
-              <a href="tel:+971501886773" class="btn btn-outline-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+              <a href="tel:+971501886773" class="btn-qc-call">
                 <i class="bi bi-telephone-fill"></i> Direct Call
               </a>
             </div>
             <div class="col-6">
-              <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20am%20requesting%20a%20fast%20quotation." target="_blank" class="btn btn-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+              <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20am%20requesting%20a%20fast%20quotation." target="_blank" class="btn-qc-wa">
                 <i class="bi bi-whatsapp"></i> WhatsApp
               </a>
             </div>
@@ -634,7 +657,7 @@
                 <option value="Thermal Imaging Survey">Thermal Imaging Survey</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-accent w-100 py-2 fw-bold">
+            <button type="submit" class="btn-qc-submit w-100">
               <i class="bi bi-send-fill me-1"></i> Request Instant Callback
             </button>
           </form>
@@ -710,7 +733,7 @@
         <div class="col-6 col-lg-3">
           <h5 class="footer-heading">Services & Systems</h5>
           <ul class="footer-links-list">
-            <li><a href="index.html#pd-diagnostics"><i class="bi bi-chevron-right text-primary"></i> PD Testing Services</a></li>
+            <li><a href="index.html#services"><i class="bi bi-chevron-right text-primary"></i> PD Testing Services</a></li>
             <li><a href="index.html#services"><i class="bi bi-chevron-right text-primary"></i> Thermal Imaging Survey</a></li>
             <li><a href="products.html?category=Transformer%20Testers"><i class="bi bi-chevron-right text-primary"></i> Transformer Testing</a></li>
             <li><a href="products.html?category=Power%20Quality"><i class="bi bi-chevron-right text-primary"></i> Power Quality Loggers</a></li>

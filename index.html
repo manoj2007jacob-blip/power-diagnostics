@@ -26,9 +26,10 @@
       </a>
 
       <!-- Header Search Bar (Desktop) -->
-      <form class="nav-search-form d-none d-lg-block me-3" action="products.html" method="GET">
+      <form class="nav-search-form d-none d-lg-block me-3" action="products.html" method="GET" autocomplete="off">
         <i class="bi bi-search nav-search-icon"></i>
-        <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+        <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands..." autocomplete="off">
+        <div class="nav-search-autocomplete"></div>
       </form>
 
       <!-- Action Buttons: Quick Connect & Cart Popup -->
@@ -56,9 +57,10 @@
       <div class="collapse navbar-collapse" id="navMenu">
         
         <!-- Mobile Search Bar -->
-        <form class="nav-search-form d-lg-none my-3" action="products.html" method="GET">
+        <form class="nav-search-form d-lg-none my-3" action="products.html" method="GET" autocomplete="off">
           <i class="bi bi-search nav-search-icon"></i>
-          <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands...">
+          <input type="text" name="search" class="form-control nav-search-input" placeholder="Search equipment, models, brands..." autocomplete="off">
+          <div class="nav-search-autocomplete"></div>
         </form>
 
         <ul class="navbar-nav ms-auto gap-xl-1">
@@ -401,87 +403,15 @@
     </div>
   </section>
 
-  <!-- 2. Highlighted Categories (Anaum Style) -->
+  <!-- Featured Test Instruments Grid (8 Products) -->
   <section class="section-padding bg-light">
-    <div class="container">
-      <div class="text-center mb-5 animate-on-scroll">
-        <div class="badge bg-primary-subtle text-primary px-3 py-2 fw-bold text-uppercase mb-2" style="letter-spacing: 1px;">
-          Product Categories
-        </div>
-        <h2 class="fw-bold">Explore By Equipment Category</h2>
-        <p class="text-muted mx-auto" style="max-width:620px;">
-          Browse our extensive range of certified industrial electrical testing instruments and specialized diagnostic systems.
-        </p>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.1s;">
-          <a href="products.html?category=Clamp%20Meters" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/hioki-3280-10f.jpg" alt="Clamp Meters" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">Clamp Meters</h6>
-            <span class="category-highlight-count">8 Models</span>
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.15s;">
-          <a href="products.html?category=Power%20Quality" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/fluke-1736.jpg" alt="Power Loggers" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">Power Quality</h6>
-            <span class="category-highlight-count">6 Models</span>
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.2s;">
-          <a href="products.html?category=Insulation%20Testers" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/fluke-1550c.jpg" alt="High Voltage Testers" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">HV Insulation</h6>
-            <span class="category-highlight-count">10 Models</span>
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.25s;">
-          <a href="products.html?category=Relay%20Test%20Sets" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/sverker-780.jpg" alt="Relay Test Sets" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">Relay Testers</h6>
-            <span class="category-highlight-count">5 Models</span>
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.3s;">
-          <a href="products.html?category=Transformer%20Testers" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/vanguard-trm-203.jpg" alt="Transformer Testers" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">Transformer Testers</h6>
-            <span class="category-highlight-count">7 Models</span>
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.35s;">
-          <a href="products.html?category=Thermal%20Cameras" class="category-highlight-card">
-            <div class="category-highlight-img-box">
-              <img src="images/equipment/sf6-detector.jpg" alt="Thermal Imaging & Gas" class="category-highlight-img">
-            </div>
-            <h6 class="category-highlight-title">Thermal & Gas</h6>
-            <span class="category-highlight-count">6 Models</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Featured 10 Products Grid -->
-  <section class="section-padding bg-white">
     <div class="container">
       <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3 animate-on-scroll">
         <div>
           <div class="badge bg-primary-subtle text-primary px-3 py-2 fw-bold text-uppercase mb-2" style="letter-spacing: 1px;">
             Top Recommendations
           </div>
-          <h2 class="fw-bold mb-0">Featured Test Instruments (10 Products)</h2>
+          <h2 class="fw-bold mb-0">Featured Test Instruments</h2>
         </div>
         <a href="products.html" class="btn btn-outline-primary rounded-pill px-4 fw-semibold">
           View All Products <i class="bi bi-arrow-right ms-1"></i>
@@ -706,66 +636,12 @@
           </div>
         </div>
 
-        <!-- Product 9 -->
-        <div class="col-sm-6 col-lg-4 col-xl-3 animate-on-scroll" style="animation-delay: 0.4s;">
-          <div class="featured-product-card">
-            <div class="featured-card-topbar">
-              <span class="featured-brand-badge">MEGGER</span>
-              <span class="badge bg-success-subtle text-success" style="font-size: 0.7rem;">Primary Test</span>
-            </div>
-            <a href="product-details.html?id=megger-csu600a" class="featured-product-img-wrapper">
-              <img src="images/equipment/meggeri-csu600a1.jpg" alt="Megger CSU600A Current Injection Test Set" class="featured-product-img">
-            </a>
-            <div class="featured-model-code">MODEL: CSU600A</div>
-            <h6 class="featured-product-title">
-              <a href="product-details.html?id=megger-csu600a">CSU600A Current Injection Set</a>
-            </h6>
-            <p class="featured-product-desc">Compact current source for breaker tripping, transformer ratios, and heat run testing.</p>
-            <div class="featured-card-actions">
-              <button type="button" class="btn btn-sm btn-accent-gradient flex-fill btn-add-to-cart" 
-                data-id="megger-csu600a" data-name="CSU600A Current Injection Set" data-brand="Megger" data-category="Relay Test Sets" data-image="images/equipment/meggeri-csu600a1.jpg">
-                <i class="bi bi-cart-plus me-1"></i> Add to Cart
-              </button>
-              <a href="product-details.html?id=megger-csu600a" class="btn btn-sm btn-details-info" title="View Details">
-                <i class="bi bi-info-circle"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 10 -->
-        <div class="col-sm-6 col-lg-4 col-xl-3 animate-on-scroll" style="animation-delay: 0.45s;">
-          <div class="featured-product-card">
-            <div class="featured-card-topbar">
-              <span class="featured-brand-badge">RIGOL</span>
-              <span class="badge bg-success-subtle text-success" style="font-size: 0.7rem;">Lab Standard</span>
-            </div>
-            <a href="product-details.html?id=rigol-dp712" class="featured-product-img-wrapper">
-              <img src="images/equipment/rigol-dp712.jpg" alt="Rigol DP712 Programmable DC Power Supply" class="featured-product-img">
-            </a>
-            <div class="featured-model-code">MODEL: DP712</div>
-            <h6 class="featured-product-title">
-              <a href="product-details.html?id=rigol-dp712">DP712 Programmable DC Supply</a>
-            </h6>
-            <p class="featured-product-desc">Single-channel 50V/3A 150W high-performance linear programmable power source.</p>
-            <div class="featured-card-actions">
-              <button type="button" class="btn btn-sm btn-accent-gradient flex-fill btn-add-to-cart" 
-                data-id="rigol-dp712" data-name="DP712 Programmable DC Supply" data-brand="Rigol" data-category="Power Quality" data-image="images/equipment/rigol-dp712.jpg">
-                <i class="bi bi-cart-plus me-1"></i> Add to Cart
-              </button>
-              <a href="product-details.html?id=rigol-dp712" class="btn btn-sm btn-details-info" title="View Details">
-                <i class="bi bi-info-circle"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- 4. Services We Provide (6 Core Services) -->
-  <section id="services" class="section-padding bg-light">
+  <!-- Services We Provide (6 Core Services) -->
+  <section id="services" class="section-padding bg-white">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
         <div class="badge bg-primary-subtle text-primary px-3 py-2 fw-bold text-uppercase mb-2" style="letter-spacing: 1px;">
@@ -786,7 +662,7 @@
             <p class="service-card-text">
               On-site Partial Discharge detection, continuous monitoring, and expert analysis for HV/MV cables, switchgears, and generators.
             </p>
-            <a href="index.html#pd-diagnostics" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
+            <a href="contact.html?service=PD+Testing" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
           </div>
         </div>
 
@@ -847,82 +723,6 @@
               Authorized supply of brand-new genuine testing instruments, manufacturer warranties, and post-sales technical assistance.
             </p>
             <a href="supply.html" class="btn btn-sm btn-outline-primary mt-auto">Supply Catalog</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Partial Discharge Diagnostic Details -->
-  <section id="pd-diagnostics" class="section-padding pd-diagnostics-section">
-    <div class="container">
-      <div class="text-center mb-4 animate-on-scroll">
-        <h3 class="fw-bold mb-1" style="color: #1e293b;">Partial Discharge Diagnostic Technology</h3>
-        <p class="text-uppercase fw-semibold mb-2" style="font-size: 0.85rem; letter-spacing: 2px; color: #6b7280;">ADVANCED DETECTION | EXPERT ANALYSIS</p>
-        <p class="mx-auto" style="max-width: 900px; font-size: 1.1rem; line-height: 1.6; color: #1e293b; font-weight: 500;">
-          Specialized PD measurement and health assessment services aimed at identifying electrical insulation breakdown before it causes downtime.
-        </p>
-      </div>
-
-      <!-- Asset Grid -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-6 col-lg-3 animate-on-scroll" style="animation-delay: 0.1s;">
-          <div class="pd-asset-card">
-            <div class="pd-asset-image-wrap">
-              <img src="images/equipment/hvmvcable.jpg" alt="HV/MV Cables Testing">
-              <span class="pd-asset-chip"><i class="bi bi-bezier2"></i> Cables</span>
-            </div>
-            <div class="pd-asset-body">
-              <h5 class="pd-asset-title">HV/MV CABLES</h5>
-              <ul>
-                <li>Termination and joint integrity diagnostics.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 animate-on-scroll" style="animation-delay: 0.2s;">
-          <div class="pd-asset-card">
-            <div class="pd-asset-image-wrap">
-              <img src="images/equipment/MV_HVSwitchgear.jpg" alt="HV/MV Switchgears Testing">
-              <span class="pd-asset-chip"><i class="bi bi-toggles"></i> Switchgear</span>
-            </div>
-            <div class="pd-asset-body">
-              <h5 class="pd-asset-title">HV/MV SWITCHGEARS</h5>
-              <ul>
-                <li>GIS & AIS partial discharge detection.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 animate-on-scroll" style="animation-delay: 0.3s;">
-          <div class="pd-asset-card">
-            <div class="pd-asset-image-wrap">
-              <img src="images/equipment/HV_MVTransformer.jpg" alt="HV/MV Transformers Testing">
-              <span class="pd-asset-chip"><i class="bi bi-cpu"></i> Transformer</span>
-            </div>
-            <div class="pd-asset-body">
-              <h5 class="pd-asset-title">POWER TRANSFORMERS</h5>
-              <ul>
-                <li>Internal insulation and bushing health.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 animate-on-scroll" style="animation-delay: 0.4s;">
-          <div class="pd-asset-card">
-            <div class="pd-asset-image-wrap">
-              <img src="images/equipment/ROTATING_MACHINES.jpg" alt="Rotating Machines Testing">
-              <span class="pd-asset-chip"><i class="bi bi-gear-wide-connected"></i> Rotating</span>
-            </div>
-            <div class="pd-asset-body">
-              <h5 class="pd-asset-title">ROTATING MACHINES</h5>
-              <ul>
-                <li>Stator winding insulation for HV motors.</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -1227,9 +1027,9 @@
   <div class="modal fade" id="quickConnectModal" tabindex="-1" aria-labelledby="quickConnectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
-        <div class="modal-header bg-dark text-white p-4">
+        <div class="modal-header modal-header-corporate p-3 p-sm-4 text-white">
           <div>
-            <h5 class="modal-title fw-bold" id="quickConnectModalLabel"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Connect</h5>
+            <h5 class="modal-title fw-bold text-white mb-0" id="quickConnectModalLabel"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Connect</h5>
             <small class="text-white-50">Speak to an Electrical Diagnostic Specialist in UAE</small>
           </div>
           <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1237,14 +1037,14 @@
         <div class="modal-body p-4">
           
           <!-- Fast Contact Options -->
-          <div class="row g-2 mb-4">
+          <div class="row g-2 mb-3">
             <div class="col-6">
-              <a href="tel:+971501886773" class="btn btn-outline-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+              <a href="tel:+971501886773" class="btn-qc-call">
                 <i class="bi bi-telephone-fill"></i> Direct Call
               </a>
             </div>
             <div class="col-6">
-              <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20am%20requesting%20a%20fast%20quotation." target="_blank" class="btn btn-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2">
+              <a href="https://wa.me/971501886773?text=Hello%20Power%20Diagnostics,%20I%20am%20requesting%20a%20fast%20quotation." target="_blank" class="btn-qc-wa">
                 <i class="bi bi-whatsapp"></i> WhatsApp
               </a>
             </div>
@@ -1275,7 +1075,7 @@
                 <option value="Thermal Imaging Survey">Thermal Imaging Survey</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-accent w-100 py-2 fw-bold">
+            <button type="submit" class="btn-qc-submit w-100">
               <i class="bi bi-send-fill me-1"></i> Request Instant Callback
             </button>
           </form>
@@ -1351,7 +1151,7 @@
         <div class="col-6 col-lg-3">
           <h5 class="footer-heading">Services & Systems</h5>
           <ul class="footer-links-list">
-            <li><a href="index.html#pd-diagnostics"><i class="bi bi-chevron-right text-primary"></i> PD Testing Services</a></li>
+            <li><a href="index.html#services"><i class="bi bi-chevron-right text-primary"></i> PD Testing Services</a></li>
             <li><a href="index.html#services"><i class="bi bi-chevron-right text-primary"></i> Thermal Imaging Survey</a></li>
             <li><a href="products.html?category=Transformer%20Testers"><i class="bi bi-chevron-right text-primary"></i> Transformer Testing</a></li>
             <li><a href="products.html?category=Power%20Quality"><i class="bi bi-chevron-right text-primary"></i> Power Quality Loggers</a></li>
