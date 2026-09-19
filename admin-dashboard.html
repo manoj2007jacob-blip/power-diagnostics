@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Power Diagnostics UAE</title>
+  <meta name="description" content="Enterprise Management Dashboard for Power Diagnostics UAE.">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Admin Custom CSS -->
+  <link href="admin.css" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout-wrapper">
+
+    <!-- Mobile Backdrop -->
+    <div id="sidebarBackdrop" class="admin-sidebar-backdrop"></div>
+
+    <!-- =====================================================================
+         1. Left Menu Panel (Sidebar Navigation)
+         ===================================================================== -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <!-- Sidebar Brand Header -->
+      <div class="admin-sidebar-header">
+        <a href="#dashboard" class="admin-sidebar-logo" data-route="dashboard">
+          <div class="admin-brand-icon">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <div class="admin-logo-text-wrap">
+            <span class="admin-logo-title">Power Diagnostics</span>
+            <div class="admin-logo-meta">
+              <span class="admin-logo-subtitle">Control Suite</span>
+              <span class="badge-admin-pill">Admin</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Menus -->
+      <ul class="admin-sidebar-menu">
+        <li class="admin-menu-header">Overview</li>
+
+        <!-- 1. Dashboard -->
+        <li class="admin-menu-item">
+          <a class="admin-menu-link active" data-route="dashboard">
+            <i class="bi bi-speedometer2 menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="admin-menu-header">Catalog & Master Data</li>
+
+        <!-- 2. Master (Collapsible Submenu) -->
+        <li class="admin-menu-item">
+          <a class="admin-menu-link" data-bs-toggle="collapse" data-bs-target="#masterSubmenu" aria-expanded="false">
+            <i class="bi bi-grid-fill menu-icon"></i>
+            <span class="menu-title">Master</span>
+            <i class="bi bi-chevron-right arrow-icon"></i>
+          </a>
+          <div class="collapse" id="masterSubmenu">
+            <ul class="admin-submenu">
+              <li>
+                <a class="admin-submenu-link" data-route="brands">
+                  <i class="bi bi-circle-fill"></i> Brands
+                </a>
+              </li>
+              <li>
+                <a class="admin-submenu-link" data-route="products">
+                  <i class="bi bi-circle-fill"></i> Products
+                </a>
+              </li>
+              <li>
+                <a class="admin-submenu-link" data-route="category">
+                  <i class="bi bi-circle-fill"></i> Category
+                </a>
+              </li>
+              <li>
+                <a class="admin-submenu-link" data-route="subcategory">
+                  <i class="bi bi-circle-fill"></i> Subcategory
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="admin-menu-header">Operations & Leads</li>
+
+        <!-- 3. Enquiries -->
+        <li class="admin-menu-item">
+          <a class="admin-menu-link" data-route="enquiries">
+            <i class="bi bi-envelope-paper-fill menu-icon"></i>
+            <span class="menu-title">Enquiries</span>
+            <span class="badge bg-danger rounded-pill ms-auto px-2 py-1" style="font-size: 0.68rem;">5 New</span>
+          </a>
+        </li>
+
+        <!-- 4. Write Blogs / Articles -->
+        <li class="admin-menu-item">
+          <a class="admin-menu-link" data-route="blogs">
+            <i class="bi bi-journal-richtext menu-icon"></i>
+            <span class="menu-title">Write Blogs</span>
+            <span class="badge bg-primary-subtle text-primary rounded-pill ms-auto px-2 py-1" style="font-size: 0.68rem;">CMS</span>
+          </a>
+        </li>
+
+        <li class="admin-menu-header">Analytics & Reports</li>
+
+        <!-- 5. Reports (Collapsible Submenu) -->
+        <li class="admin-menu-item">
+          <a class="admin-menu-link" data-bs-toggle="collapse" data-bs-target="#reportsSubmenu" aria-expanded="false">
+            <i class="bi bi-bar-chart-line-fill menu-icon"></i>
+            <span class="menu-title">Reports</span>
+            <i class="bi bi-chevron-right arrow-icon"></i>
+          </a>
+          <div class="collapse" id="reportsSubmenu">
+            <ul class="admin-submenu">
+              <li>
+                <a class="admin-submenu-link" data-route="report-enquiries">
+                  <i class="bi bi-circle-fill"></i> Enquiry List
+                </a>
+              </li>
+              <li>
+                <a class="admin-submenu-link" data-route="report-rentals">
+                  <i class="bi bi-circle-fill"></i> Rental Fleet Utilization
+                </a>
+              </li>
+              <li>
+                <a class="admin-submenu-link" data-route="report-sales">
+                  <i class="bi bi-circle-fill"></i> Sales & Revenue Pipeline
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="admin-menu-header">Quick System Links</li>
+
+        <li class="admin-menu-item">
+          <a href="index.html" target="_blank" class="admin-menu-link">
+            <i class="bi bi-box-arrow-up-right menu-icon"></i>
+            <span class="menu-title">Client Website</span>
+          </a>
+        </li>
+
+        <li class="admin-menu-item">
+          <a href="#" class="admin-menu-link btn-admin-logout text-danger">
+            <i class="bi bi-box-arrow-left menu-icon text-danger"></i>
+            <span class="menu-title">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Sidebar Footer -->
+      <div class="admin-sidebar-footer">
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="fw-semibold">Suite v2.4.0</span>
+          <span class="badge bg-success-subtle text-success border border-success-subtle">Online</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- =====================================================================
+         2. Main Content & Top Navbar
+         ===================================================================== -->
+    <div class="admin-main-wrapper">
+
+      <!-- Top Admin Navbar -->
+      <header class="admin-navbar">
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="admin-nav-toggle-btn" id="sidebarToggleBtn" title="Toggle Sidebar">
+            <i class="bi bi-list"></i>
+          </button>
+          
+          <!-- Global Search -->
+          <div class="admin-nav-search">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" placeholder="Search catalog, RFQs, clients...">
+            <span class="admin-search-badge">⌘K</span>
+          </div>
+        </div>
+
+        <!-- Navbar Actions & User Profile -->
+        <div class="admin-nav-actions">
+          <!-- Client Preview Shortcut -->
+          <a href="index.html" target="_blank" class="admin-btn-live d-none d-md-inline-flex">
+            <i class="bi bi-globe2"></i> <span>Live Website</span>
+          </a>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="admin-nav-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+              <i class="bi bi-bell-fill"></i>
+              <span class="admin-badge-dot"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3 p-2" style="min-width: 320px;">
+              <li class="px-2 py-1 fw-bold text-dark border-bottom small d-flex justify-content-between align-items-center">
+                <span>Notifications</span>
+                <span class="badge bg-primary rounded-pill">3 New</span>
+              </li>
+              <li>
+                <a class="dropdown-item p-2 rounded-2 small mt-1" href="#enquiries" data-route="enquiries">
+                  <div class="fw-bold text-dark"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> New Rental RFQ #8921</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Rashid Al Nuaimi (DEWA Substation)</div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item p-2 rounded-2 small" href="#enquiries" data-route="enquiries">
+                  <div class="fw-bold text-dark"><i class="bi bi-chat-left-dots-fill text-primary me-1"></i> PD Diagnostic Callback</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Petrofac Emirates • 15 mins ago</div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item p-2 rounded-2 small" href="#products" data-route="products">
+                  <div class="fw-bold text-dark"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Low Stock Alert</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">SF6 Optical Camera (2 units left)</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Logged In User Profile Dropdown -->
+          <div class="dropdown">
+            <div class="admin-user-profile-chip" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="admin-user-avatar" id="navbarUserAvatar">
+                TA
+                <span class="admin-status-indicator"></span>
+              </div>
+              <div class="d-none d-sm-block text-start me-1">
+                <div class="admin-user-name" id="navbarUserName">Eng. Tariq Al-Mansoor</div>
+                <div class="admin-user-role" id="navbarUserRole">Super Administrator</div>
+              </div>
+              <i class="bi bi-chevron-down text-muted small d-none d-sm-inline"></i>
+            </div>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3 p-2" style="min-width: 230px;">
+              <li class="px-3 py-2 border-bottom mb-1">
+                <div class="fw-bold text-dark small" id="menuUserFullName">Eng. Tariq Al-Mansoor</div>
+                <div class="text-muted" style="font-size: 0.75rem;" id="menuUserEmail">admin@powerdiagnostics.ae</div>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 small" href="#" data-bs-toggle="modal" data-bs-target="#profileDetailsModal">
+                  <i class="bi bi-person-gear me-2 text-primary"></i> Profile Details
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 small" href="#" data-bs-toggle="modal" data-bs-target="#profileDetailsModal">
+                  <i class="bi bi-shield-lock me-2 text-secondary"></i> Security & 2FA
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 small" href="#report-enquiries" data-route="report-enquiries">
+                  <i class="bi bi-journal-text me-2 text-secondary"></i> Activity Reports
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 small text-danger btn-admin-logout" href="#">
+                  <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- =====================================================================
+           3. Dynamic View Panels
+           ===================================================================== -->
+      <main class="admin-content-body">
+
+        <!-- VIEW 1: DASHBOARD -->
+        <section id="view-dashboard" class="admin-view-panel">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Executive Operations Dashboard</h1>
+              <p class="admin-page-subtitle">Real-time status of diagnostic inquiries, equipment rental fleet, and product catalog.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-secondary px-3 py-2" onclick="window.location.reload()"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</button>
+              <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#addProductModal"><i class="bi bi-plus-lg me-1"></i> Add Product</button>
+            </div>
+          </div>
+
+          <!-- KPI Metric Stat Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="admin-stat-card stat-card-blue">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <span class="admin-stat-label">Total Inquiries</span>
+                    <div class="admin-stat-value">137</div>
+                    <span class="admin-stat-trend trend-up"><i class="bi bi-arrow-up-right"></i> +14.8% this month</span>
+                  </div>
+                  <div class="admin-stat-icon-wrap stat-blue">
+                    <i class="bi bi-envelope-paper-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="admin-stat-card stat-card-green">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <span class="admin-stat-label">Active Fleet Items</span>
+                    <div class="admin-stat-value">48</div>
+                    <span class="admin-stat-trend trend-up"><i class="bi bi-arrow-up-right"></i> 89% Utilization</span>
+                  </div>
+                  <div class="admin-stat-icon-wrap stat-green">
+                    <i class="bi bi-tools"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="admin-stat-card stat-card-amber">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <span class="admin-stat-label">Master Catalog</span>
+                    <div class="admin-stat-value">84</div>
+                    <span class="admin-stat-trend trend-up"><i class="bi bi-check2"></i> 9 Brands</span>
+                  </div>
+                  <div class="admin-stat-icon-wrap stat-amber">
+                    <i class="bi bi-box-seam-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="admin-stat-card stat-card-purple">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <span class="admin-stat-label">RFQ Conversion</span>
+                    <div class="admin-stat-value">76.4%</div>
+                    <span class="admin-stat-trend trend-up"><i class="bi bi-graph-up-arrow"></i> +5.2% vs Q2</span>
+                  </div>
+                  <div class="admin-stat-icon-wrap stat-purple">
+                    <i class="bi bi-pie-chart-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="row g-4 mb-4">
+            <div class="col-12 col-lg-8">
+              <div class="admin-card h-100">
+                <div class="admin-card-header">
+                  <h6 class="admin-card-title"><i class="bi bi-graph-up text-primary"></i> Monthly Inquiry & RFQ Volume</h6>
+                  <span class="badge bg-light text-dark border">Last 6 Months</span>
+                </div>
+                <div class="admin-card-body" style="height: 310px;">
+                  <canvas id="chartInquiryTrends"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+              <div class="admin-card h-100">
+                <div class="admin-card-header">
+                  <h6 class="admin-card-title"><i class="bi bi-pie-chart text-primary"></i> Category Distribution</h6>
+                  <span class="badge bg-light text-dark border">Fleet Share</span>
+                </div>
+                <div class="admin-card-body d-flex align-items-center justify-content-center" style="height: 310px;">
+                  <canvas id="chartCategoryDistribution"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Inquiries Table -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h6 class="admin-card-title"><i class="bi bi-clock-history text-primary"></i> Recent RFQ & Inquiries</h6>
+              <a href="#enquiries" data-route="enquiries" class="btn btn-sm btn-outline-primary">View All Inquiries</a>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Client / Company</th>
+                    <th>Service Needed</th>
+                    <th>Equipment Requested</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="tableDashboardRecentBody">
+                  <!-- Injected by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: MASTER -> BRANDS -->
+        <section id="view-brands" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Master Brands Management</h1>
+              <p class="admin-page-subtitle">Configure OEM test instrument manufacturers, logos, and featured flags.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#addBrandModal">
+              <i class="bi bi-plus-lg me-1"></i> Add Brand
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="admin-table-toolbar">
+                <div class="admin-search-input">
+                  <i class="bi bi-search"></i>
+                  <input type="text" placeholder="Filter brands...">
+                </div>
+                <div class="text-muted small">Total: <strong>9 Authorized Partners</strong></div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Brand Name</th>
+                      <th>Country</th>
+                      <th>Catalog Items</th>
+                      <th>Homepage Showcase</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBrandsBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: MASTER -> PRODUCTS -->
+        <section id="view-products" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Master Products Inventory</h1>
+              <p class="admin-page-subtitle">Manage electrical testing equipment catalog, rental fleet inventory, and specifications.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#addProductModal">
+              <i class="bi bi-plus-lg me-1"></i> Add Product
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="admin-table-toolbar">
+                <div class="admin-search-input">
+                  <i class="bi bi-search"></i>
+                  <input type="text" placeholder="Search by model, name or code...">
+                </div>
+                <div class="d-flex gap-2">
+                  <select class="form-select form-select-sm" style="width: 160px;">
+                    <option value="">All Categories</option>
+                    <option value="HV">High Voltage</option>
+                    <option value="PD">Partial Discharge</option>
+                    <option value="TR">Transformer</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Item Code</th>
+                      <th>Product Name / Brand</th>
+                      <th>Category</th>
+                      <th>Availability</th>
+                      <th>Stock Fleet</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableProductsBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 4: MASTER -> CATEGORY -->
+        <section id="view-category" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Master Categories</h1>
+              <p class="admin-page-subtitle">Define primary diagnostic technology categories and equipment divisions.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+              <i class="bi bi-plus-lg me-1"></i> Add Category
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Category Name</th>
+                      <th>Subcategories</th>
+                      <th>Product Items</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableCategoriesBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 5: MASTER -> SUBCATEGORY -->
+        <section id="view-subcategory" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Master Subcategories</h1>
+              <p class="admin-page-subtitle">Manage specialized instrument classifications linked to parent categories.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#addSubcategoryModal">
+              <i class="bi bi-plus-lg me-1"></i> Add Subcategory
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Subcategory Name</th>
+                      <th>Parent Category</th>
+                      <th>Product Items</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableSubcategoriesBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 6: ENQUIRIES -->
+        <section id="view-enquiries" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Enquiries & RFQ Lead Manager</h1>
+              <p class="admin-page-subtitle">Track incoming rental inquiries, PD diagnostic testing requests, and fast callbacks.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-primary" onclick="alert('Exporting inquiries to CSV...')"><i class="bi bi-download me-1"></i> Export CSV</button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="admin-table-toolbar">
+                <div class="admin-search-input">
+                  <i class="bi bi-search"></i>
+                  <input type="text" placeholder="Search by client, company or ref ID...">
+                </div>
+                <div class="d-flex gap-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle align-self-center px-3 py-2">
+                    5 Total Inquiries
+                  </span>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Ref ID</th>
+                      <th>Client / Company</th>
+                      <th>Direct Contact</th>
+                      <th>Service & Kit</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th class="text-end">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableEnquiriesBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 7: WRITE BLOGS & ARTICLES (NEW) -->
+        <section id="view-blogs" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Technical Blogs & Articles CMS</h1>
+              <p class="admin-page-subtitle">Publish and manage engineering insights, case studies, and testing tutorials.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#writeBlogModal">
+              <i class="bi bi-pencil-square me-1"></i> Write New Blog
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-body">
+              <div class="admin-table-toolbar">
+                <div class="admin-search-input">
+                  <i class="bi bi-search"></i>
+                  <input type="text" placeholder="Filter articles by title or keyword...">
+                </div>
+                <div class="d-flex gap-2">
+                  <span class="badge bg-success-subtle text-success border border-success-subtle align-self-center px-3 py-2">
+                    3 Published • 1 Draft
+                  </span>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th class="text-nowrap" style="width: 50px;">ID</th>
+                      <th class="text-nowrap" style="min-width: 260px;">Article Title & Summary</th>
+                      <th class="text-nowrap">Category</th>
+                      <th class="text-nowrap">Author</th>
+                      <th class="text-nowrap">Date</th>
+                      <th class="text-nowrap">Views</th>
+                      <th class="text-nowrap">Status</th>
+                      <th class="text-end text-nowrap" style="width: 120px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBlogsBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 8: REPORT -> ENQUIRIES LIST (NEW) -->
+        <section id="view-report-enquiries" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Enquiry List & Lead Audit Report</h1>
+              <p class="admin-page-subtitle">Comprehensive ledger of all incoming quotations, rentals, and testing commissions.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-secondary px-3 py-2" onclick="alert('Filtering report date range...')"><i class="bi bi-calendar3 me-1"></i> Date Filter</button>
+              <button class="btn btn-sm btn-primary px-3 py-2" onclick="alert('Downloading Enquiry List Excel Report...')"><i class="bi bi-file-earmark-spreadsheet me-1"></i> Export Excel</button>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-md-3">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Total Inquiries Received</span>
+                <div class="h4 fw-bold text-dark my-1">137 Leads</div>
+                <small class="text-success"><i class="bi bi-arrow-up-right"></i> +14.8% vs last month</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Converted to Official RFQ</span>
+                <div class="h4 fw-bold text-primary my-1">105 Quotes</div>
+                <small class="text-muted">76.4% Conversion</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Active In Progress</span>
+                <div class="h4 fw-bold text-warning my-1">18 Leads</div>
+                <small class="text-muted">Assigned to engineers</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Estimated Pipeline Value</span>
+                <div class="h4 fw-bold text-success my-1">AED 485,000</div>
+                <small class="text-success"><i class="bi bi-check2-circle"></i> UAE Operations</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h6 class="admin-card-title"><i class="bi bi-table text-primary"></i> Master Enquiry Records</h6>
+              <span class="badge bg-light text-dark border">YTD 2026</span>
+            </div>
+            <div class="admin-card-body">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Ref ID</th>
+                      <th>Client Name</th>
+                      <th>Company / Entity</th>
+                      <th>Service Required</th>
+                      <th>Kit / System</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Quoted Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableReportEnquiriesBody">
+                    <!-- Injected by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 9: REPORT -> RENTAL FLEET UTILIZATION (NEW) -->
+        <section id="view-report-rentals" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Equipment Rental Fleet Utilization</h1>
+              <p class="admin-page-subtitle">Fleet deployment duration, equipment wear analysis, and rental revenue performance.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" onclick="alert('Exporting Fleet Utilization PDF...')">
+              <i class="bi bi-file-earmark-pdf-fill me-1"></i> Export Fleet Report
+            </button>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Total Rental Fleet Fleet</span>
+                <div class="h3 fw-bold text-primary my-1">48 Kits</div>
+                <small class="text-muted">Calibrated & Certified</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Active Fleet Deployment</span>
+                <div class="h3 fw-bold text-success my-1">42 Units (89.2%)</div>
+                <small class="text-success"><i class="bi bi-check-circle-fill"></i> High demand in Abu Dhabi & Dubai</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">In Laboratory Maintenance</span>
+                <div class="h3 fw-bold text-amber my-1">6 Units</div>
+                <small class="text-muted">NIST Annual Calibration</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h6 class="admin-card-title"><i class="bi bi-tools text-primary"></i> Top Rented Instrument Models</h6>
+            </div>
+            <div class="admin-card-body">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Equipment Model</th>
+                      <th>OEM Brand</th>
+                      <th>Category</th>
+                      <th>Total Days Deployed</th>
+                      <th>Utilization Rate</th>
+                      <th>Revenue (AED)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-bold text-dark">Omicron CPC 100 Multi-functional Test Set</td>
+                      <td>Omicron Electronics</td>
+                      <td>Primary Current Injection</td>
+                      <td>142 Days</td>
+                      <td><span class="badge bg-success-subtle text-success">94.5%</span></td>
+                      <td class="fw-bold text-success">AED 124,000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold text-dark">Megger SVERKER 780 Relay Test Set</td>
+                      <td>Megger Group</td>
+                      <td>Protection Relay Testing</td>
+                      <td>118 Days</td>
+                      <td><span class="badge bg-success-subtle text-success">88.0%</span></td>
+                      <td class="fw-bold text-success">AED 86,500</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold text-dark">Fluke 1736 Three-Phase Power Logger</td>
+                      <td>Fluke Corporation</td>
+                      <td>Power Quality Analyzers</td>
+                      <td>104 Days</td>
+                      <td><span class="badge bg-success-subtle text-success">85.2%</span></td>
+                      <td class="fw-bold text-success">AED 52,000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold text-dark">SF6 Gas Optical Leakage Camera</td>
+                      <td>Fluke Corporation</td>
+                      <td>Optical Gas Detection</td>
+                      <td>78 Days</td>
+                      <td><span class="badge bg-success-subtle text-success">78.0%</span></td>
+                      <td class="fw-bold text-success">AED 68,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 10: REPORT -> SALES & REVENUE PIPELINE (NEW) -->
+        <section id="view-report-sales" class="admin-view-panel d-none">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Sales & Revenue Pipeline Report</h1>
+              <p class="admin-page-subtitle">Commercial deal conversion, monthly sales growth, and OEM brand demand shares.</p>
+            </div>
+            <button class="btn btn-sm btn-primary px-3 py-2" onclick="alert('Exporting Sales Pipeline Report...')">
+              <i class="bi bi-download me-1"></i> Export Commercial Summary
+            </button>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Q3 Confirmed Sales & Services</span>
+                <div class="h3 fw-bold text-primary my-1">AED 1,280,000</div>
+                <small class="text-success"><i class="bi bi-arrow-up-right"></i> +18.4% vs Q2</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Average RFQ Deal Size</span>
+                <div class="h3 fw-bold text-dark my-1">AED 28,400</div>
+                <small class="text-muted">Across UAE utility & industrial tenders</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="admin-card p-3">
+                <span class="text-muted small fw-semibold">Win / Conversion Rate</span>
+                <div class="h3 fw-bold text-success my-1">76.4%</div>
+                <small class="text-success"><i class="bi bi-check2"></i> Fast engineering response</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h6 class="admin-card-title"><i class="bi bi-award text-primary"></i> OEM Brand Demand Share Breakdown</h6>
+            </div>
+            <div class="admin-card-body">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>OEM Partner Brand</th>
+                      <th>Total Inquiries</th>
+                      <th>Won Orders</th>
+                      <th>Market Share</th>
+                      <th>Total Revenue (YTD)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-bold"><span class="badge bg-light text-primary border me-2">Fluke</span> Fluke Corporation</td>
+                      <td>52</td>
+                      <td>44</td>
+                      <td><span class="badge bg-primary-subtle text-primary">38.2%</span></td>
+                      <td class="fw-bold text-dark">AED 488,000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold"><span class="badge bg-light text-primary border me-2">Omicron</span> Omicron Electronics</td>
+                      <td>34</td>
+                      <td>28</td>
+                      <td><span class="badge bg-primary-subtle text-primary">26.5%</span></td>
+                      <td class="fw-bold text-dark">AED 365,000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold"><span class="badge bg-light text-primary border me-2">Megger</span> Megger Group</td>
+                      <td>26</td>
+                      <td>21</td>
+                      <td><span class="badge bg-primary-subtle text-primary">18.4%</span></td>
+                      <td class="fw-bold text-dark">AED 242,000</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold"><span class="badge bg-light text-primary border me-2">Hioki</span> Hioki E.E. Corp</td>
+                      <td>25</td>
+                      <td>19</td>
+                      <td><span class="badge bg-primary-subtle text-primary">16.9%</span></td>
+                      <td class="fw-bold text-dark">AED 185,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. Administrative Modals
+       ========================================================================= -->
+
+  <!-- Write Blog Modal (NEW) -->
+  <div class="modal fade" id="writeBlogModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-pencil-square me-1"></i> Write Technical Blog / Article</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formWriteBlog">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Article Title <span class="text-danger">*</span></label>
+              <input type="text" id="blogTitle" class="form-control" placeholder="e.g. Modern SF6 Leakage Detection in Substation Switchgear" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Category <span class="text-danger">*</span></label>
+                <select id="blogCategory" class="form-select" required>
+                  <option value="Partial Discharge Diagnostic">Partial Discharge Diagnostic</option>
+                  <option value="High Voltage Testing Equipment">High Voltage Testing Equipment</option>
+                  <option value="Transformer & Substation Testing">Transformer & Substation Testing</option>
+                  <option value="Power Quality & Energy Analyzers">Power Quality & Energy Analyzers</option>
+                  <option value="Cable Fault Location & Diagnostics">Cable Fault Location & Diagnostics</option>
+                  <option value="Thermal Imaging & Optical Gas Detection">Thermal Imaging & Optical Gas Detection</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Author Name</label>
+                <input type="text" id="blogAuthor" class="form-control" value="Eng. Tariq Al-Mansoor" required>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Estimated Read Time</label>
+                <input type="text" id="blogReadTime" class="form-control" value="5 min read" placeholder="e.g. 6 min read">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Publication Status</label>
+                <select id="blogStatus" class="form-select">
+                  <option value="Published">Publish Immediately</option>
+                  <option value="Draft">Save as Draft</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Short Excerpt / Meta Description <span class="text-danger">*</span></label>
+              <textarea id="blogExcerpt" class="form-control" rows="2" placeholder="Brief summary displayed on blog listings and search engines..." required></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Article Body Content <span class="text-danger">*</span></label>
+              <div class="blog-editor-toolbar">
+                <button type="button" class="blog-editor-btn" title="Bold"><i class="bi bi-type-bold"></i></button>
+                <button type="button" class="blog-editor-btn" title="Italic"><i class="bi bi-type-italic"></i></button>
+                <button type="button" class="blog-editor-btn" title="Heading 2"><i class="bi bi-type-h2"></i></button>
+                <button type="button" class="blog-editor-btn" title="Bullet List"><i class="bi bi-list-ul"></i></button>
+                <button type="button" class="blog-editor-btn" title="Numbered List"><i class="bi bi-list-ol"></i></button>
+                <button type="button" class="blog-editor-btn" title="Insert Link"><i class="bi bi-link-45deg"></i></button>
+                <button type="button" class="blog-editor-btn" title="Code snippet"><i class="bi bi-code-slash"></i></button>
+              </div>
+              <textarea id="blogContent" class="form-control blog-editor-textarea" placeholder="Write full article body text with technical guidelines, diagrams, and case notes..." required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-send-fill me-1"></i> Save & Publish Article</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Details Modal -->
+  <div class="modal fade" id="profileDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-person-gear me-1"></i> Administrator Profile</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="profileEditForm">
+          <div class="modal-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+              <div class="admin-user-avatar" style="width: 56px; height: 56px; font-size: 1.3rem;">
+                TA
+              </div>
+              <div>
+                <h6 class="fw-bold text-dark mb-0">Eng. Tariq Al-Mansoor</h6>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Super Administrator</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Full Name</label>
+              <input type="text" id="profileEditName" class="form-control" value="Eng. Tariq Al-Mansoor" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Email Address</label>
+              <input type="email" id="profileEditEmail" class="form-control" value="admin@powerdiagnostics.ae" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Phone Hotline</label>
+              <input type="tel" id="profileEditPhone" class="form-control" value="+971 50 188 6773" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Role Title</label>
+              <input type="text" id="profileEditRole" class="form-control" value="Super Administrator" readonly>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check2 me-1"></i> Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enquiry Details & Status Change Modal -->
+  <div class="modal fade" id="enquiryDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <div>
+            <h5 class="modal-title fw-bold mb-0"><i class="bi bi-envelope-paper-fill me-1"></i> Inquiry Details (<span id="modalEnqId"></span>)</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <a href="#" id="modalEnqPhoneLink" class="btn-qc-call">
+                <i class="bi bi-telephone-fill"></i> Direct Call
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="#" id="modalEnqWaLink" target="_blank" class="btn-qc-wa">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-light p-3 rounded-3 mb-3 border">
+            <div class="row g-2 small">
+              <div class="col-6"><span class="text-muted">Client:</span> <strong id="modalEnqClient" class="d-block text-dark"></strong></div>
+              <div class="col-6"><span class="text-muted">Company:</span> <strong id="modalEnqCompany" class="d-block text-dark"></strong></div>
+              <div class="col-6"><span class="text-muted">Phone:</span> <span id="modalEnqPhone" class="d-block font-monospace"></span></div>
+              <div class="col-6"><span class="text-muted">Email:</span> <span id="modalEnqEmail" class="d-block"></span></div>
+              <div class="col-6"><span class="text-muted">Service:</span> <strong id="modalEnqService" class="d-block text-primary"></strong></div>
+              <div class="col-6"><span class="text-muted">Equipment:</span> <strong id="modalEnqEquipment" class="d-block"></strong></div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small fw-bold">Customer Message / Scope</label>
+            <div class="p-2 border rounded bg-white small text-muted" id="modalEnqNotes"></div>
+          </div>
+
+          <div>
+            <label class="form-label small fw-bold">Update Inquiry Status</label>
+            <select class="form-select" id="modalEnqStatusSelect">
+              <option value="New">New Lead</option>
+              <option value="In Progress">In Progress (Technical Review)</option>
+              <option value="Quoted">Quoted (Official RFQ Sent)</option>
+              <option value="Closed">Closed / Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer bg-light p-3">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnSaveEnqStatus"><i class="bi bi-save me-1"></i> Update Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-plus-circle me-1"></i> Add Master Product</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formAddProduct">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Item Model Code</label>
+              <input type="text" id="prodCode" class="form-control font-monospace" placeholder="e.g. FLU-1775" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Product Title</label>
+              <input type="text" id="prodName" class="form-control" placeholder="e.g. Fluke 1775 Power Quality Analyzer" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small fw-bold">Brand</label>
+                <select id="prodBrand" class="form-select" required>
+                  <option value="Fluke Corporation">Fluke Corporation</option>
+                  <option value="Hioki E.E. Corp">Hioki E.E. Corp</option>
+                  <option value="Megger Group">Megger Group</option>
+                  <option value="Omicron Electronics">Omicron Electronics</option>
+                  <option value="Vanguard Instruments">Vanguard Instruments</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-bold">Availability</label>
+                <select id="prodType" class="form-select">
+                  <option value="Sale & Rental">Sale & Rental</option>
+                  <option value="Rental Only">Rental Only</option>
+                  <option value="Sale Only">Sale Only</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Category</label>
+              <select id="prodCategory" class="form-select" required>
+                <option value="High Voltage Testing Equipment">High Voltage Testing Equipment</option>
+                <option value="Partial Discharge Diagnostic">Partial Discharge Diagnostic</option>
+                <option value="Transformer & Substation Testing">Transformer & Substation Testing</option>
+                <option value="Power Quality & Energy Analyzers">Power Quality & Energy Analyzers</option>
+              </select>
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="form-label small fw-bold">Subcategory</label>
+                <input type="text" id="prodSubcategory" class="form-control" placeholder="e.g. Power Loggers" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-bold">Fleet Stock</label>
+                <input type="number" id="prodStock" class="form-control" value="5" min="1" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i> Save to Master</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Brand Modal -->
+  <div class="modal fade" id="addBrandModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-plus-circle me-1"></i> Add Brand</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formAddBrand">
+          <div class="modal-body p-3">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Brand Name</label>
+              <input type="text" id="brandName" class="form-control" placeholder="e.g. Doble Engineering" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Country of Origin</label>
+              <input type="text" id="brandCountry" class="form-control" placeholder="e.g. USA" required>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brandFeatured" checked>
+              <label class="form-check-label small" for="brandFeatured">
+                Showcase on Homepage Marquee
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Add Brand</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Category Modal -->
+  <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-plus-circle me-1"></i> Add Category</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formAddCategory">
+          <div class="modal-body p-3">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Category Code</label>
+              <input type="text" id="catCode" class="form-control font-monospace" placeholder="e.g. CAT-BAT" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Category Name</label>
+              <input type="text" id="catName" class="form-control" placeholder="e.g. Battery Testing Systems" required>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Subcategory Modal -->
+  <div class="modal fade" id="addSubcategoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+        <div class="modal-header modal-header-corporate p-3 text-white">
+          <h5 class="modal-title fw-bold mb-0"><i class="bi bi-plus-circle me-1"></i> Add Subcategory</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formAddSubcategory">
+          <div class="modal-body p-3">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Subcategory Name</label>
+              <input type="text" id="subName" class="form-control" placeholder="e.g. Battery Impedance Testers" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Parent Category</label>
+              <select id="subParentCategory" class="form-select" required>
+                <option value="High Voltage Testing Equipment">High Voltage Testing Equipment</option>
+                <option value="Partial Discharge Diagnostic">Partial Discharge Diagnostic</option>
+                <option value="Transformer & Substation Testing">Transformer & Substation Testing</option>
+                <option value="Power Quality & Energy Analyzers">Power Quality & Energy Analyzers</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Subcategory</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js CDN for visual analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Admin Script -->
+  <script src="admin.js"></script>
+</body>
+</html>
