@@ -1,0 +1,13 @@
+node_modules/
+frontend/node_modules/
+.angular/
+frontend/.angular/
+dist/
+frontend/dist/
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.log
+
