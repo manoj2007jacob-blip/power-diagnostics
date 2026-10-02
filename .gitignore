@@ -1,0 +1,11 @@
+# OS & System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# Logs & temp
+*.log
+temp/
+scratch/
+node_modules/

@@ -314,25 +314,7 @@
   function getCart() {
     try {
       const data = localStorage.getItem(CART_STORAGE_KEY);
-      return data ? JSON.parse(data) : [
-        // Default initial items for realistic demonstration matching sample images
-        {
-          id: 'hioki-3280-10f',
-          name: 'AC Clamp Meter 3280-10F',
-          brand: 'Hioki',
-          category: 'Test & Measurement',
-          image: 'images/equipment/hioki-3280-10f.jpg',
-          qty: 2
-        },
-        {
-          id: 'hioki-lr8450',
-          name: 'Temperature & Data Logger LR8450',
-          brand: 'Hioki',
-          category: 'Digital Oscilloscopes / Recorders',
-          image: 'images/equipment/hioki-lr8450.jpg',
-          qty: 2
-        }
-      ];
+      return data ? JSON.parse(data) : [];
     } catch (e) {
       return [];
     }
@@ -398,6 +380,13 @@
     const cart = getCart();
     return cart.reduce(function (sum, item) { return sum + (item.qty || 1); }, 0);
   }
+
+  window.getCart = getCart;
+  window.saveCart = saveCart;
+  window.addToCart = addToCart;
+  window.removeFromCart = removeFromCart;
+  window.updateCartQty = updateCartQty;
+  window.renderAllCartUI = renderAllCartUI;
 
   function renderAllCartUI() {
     const cart = getCart();

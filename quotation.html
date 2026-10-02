@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Commercial Quotation & Proposal - Power Diagnostics</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+    .no-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    
+    /* Header */
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      border-bottom: 2.5px solid #0f766e;
+      padding-bottom: 8px;
+    }
+    .header-table td {
+      vertical-align: middle;
+    }
+    .brand-title {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0f766e;
+      letter-spacing: -0.5px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .brand-subtitle {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .doc-meta {
+      text-align: right;
+      font-size: 8.5pt;
+      color: #334155;
+    }
+    .doc-badge {
+      display: inline-block;
+      background: #0f766e;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+      margin-bottom: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Client & Info Cards */
+    .meta-cards {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+    .meta-card {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 7px 10px;
+    }
+    .meta-card h4 {
+      margin: 0 0 3px 0;
+      font-size: 8.5pt;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .meta-card p {
+      margin: 1.5px 0;
+      font-size: 8pt;
+      color: #334155;
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 10.5pt;
+      color: #0f172a;
+      border-left: 3.5px solid #0f766e;
+      padding-left: 6px;
+      margin: 10px 0 6px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    p, li {
+      font-size: 8.5pt;
+      color: #334155;
+    }
+    ul {
+      margin: 3px 0 6px 0;
+      padding-left: 16px;
+    }
+    li {
+      margin-bottom: 2px;
+    }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 10px 0;
+      font-size: 8pt;
+    }
+    table.data-table th {
+      background: #0f766e;
+      color: #ffffff;
+      text-align: left;
+      padding: 5px 7px;
+      font-weight: 600;
+      border: 1px solid #0f766e;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    table.data-table td {
+      padding: 5px 7px;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      vertical-align: top;
+    }
+    table.data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    table.data-table tr.total-row {
+      background: #f1f5f9;
+      font-weight: 700;
+      font-size: 8.5pt;
+    }
+    table.data-table tr.total-row td {
+      border-top: 1.5px solid #0f766e;
+      color: #0f172a;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      background: #f0fdf4;
+      border-left: 3.5px solid #16a34a;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      margin: 6px 0;
+      font-size: 8pt;
+    }
+    .callout-box strong {
+      color: #15803d;
+    }
+    .callout-azure {
+      background: #f0f9ff;
+      border-left: 3.5px solid #0284c7;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      margin: 6px 0;
+      font-size: 8pt;
+    }
+    .callout-azure strong {
+      color: #0369a1;
+    }
+
+    /* Scope Grid */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .scope-card {
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      border-radius: 5px;
+      padding: 6px 8px;
+      font-size: 7.8pt;
+    }
+    .scope-card h4 {
+      margin: 0 0 3px 0;
+      font-size: 8.2pt;
+      color: #0f766e;
+      font-weight: 700;
+    }
+    .scope-card ul {
+      margin: 0;
+      padding-left: 12px;
+    }
+    .scope-card li {
+      font-size: 7.8pt;
+      margin-bottom: 1.5px;
+    }
+
+    /* Signoff Section */
+    .signoff-section {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #cbd5e1;
+    }
+    .signoff-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .signoff-table td {
+      width: 50%;
+      vertical-align: top;
+      padding: 4px 8px;
+    }
+    .sign-line {
+      margin-top: 24px;
+      border-top: 1px solid #64748b;
+      padding-top: 2px;
+      font-size: 7.5pt;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <table class="header-table">
+    <tr>
+      <td>
+        <h1 class="brand-title">Power Diagnostics</h1>
+        <div class="brand-subtitle">Industrial Electrical Test Equipment & Diagnostic Systems</div>
+      </td>
+      <td style="text-align: right;">
+        <div class="doc-badge">COMMERCIAL QUOTATION</div>
+        <div class="doc-meta">
+          <strong>Quote Ref:</strong> PD-QT-2026-09<br>
+          <strong>Date:</strong> September 17, 2026<br>
+          <strong>Validity:</strong> 30 Days
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="meta-cards">
+    <div class="meta-card">
+      <h4>CLIENT INFORMATION</h4>
+      <p><strong>Client Name:</strong> Power Diagnostics</p>
+      <p><strong>Project:</strong> Web Platform Modernization & Dynamic Catalog</p>
+      <p><strong>Tech Stack:</strong> Angular (SSR) + .NET Clean Architecture + PostgreSQL</p>
+    </div>
+    <div class="meta-card">
+      <h4>DELIVERY & SUPPORT SUMMARY</h4>
+      <p><strong>Scope:</strong> Full Application Source Code & Deployment</p>
+      <p><strong>Support:</strong> <strong>1 Year 100% Free Support Included</strong></p>
+      <p><strong>Total Fixed Price:</strong> <strong>₹1,75,000 INR (1.75 Lakhs)</strong></p>
+    </div>
+  </div>
+
+  <h2>1. Executive Summary & Architecture</h2>
+  <p>
+    Conversion of the static Power Diagnostics website into a high-performance, dynamic web platform. The platform features an <strong>Angular Server-Side Rendered (SSR)</strong> frontend for maximum search engine visibility (SEO), a robust <strong>.NET Web API (Clean Architecture with CQRS & MediatR)</strong>, <strong>PostgreSQL</strong> database with EF Core, <strong>Azure Blob Storage</strong> for image/PDF assets, and <strong>Azure Functions</strong> for serverless email processing.
+  </p>
+
+  <h2>2. Scope of Modules & Deliverables</h2>
+  <div class="scope-grid">
+    <div class="scope-card">
+      <h4>A. Angular SSR Frontend (SEO Ready)</h4>
+      <ul>
+        <li><strong>Server-Side Rendering (SSR):</strong> Full pre-rendering for Google/Bing indexing.</li>
+        <li><strong>Header:</strong> Search bar, Quick Connect pop-up & Enquiry Cart modal.</li>
+        <li><strong>Home Page:</strong> 6-7 sliding banners, 10 featured products, services grid, category highlight cards, brands carousel, and floating WhatsApp/Social overlays.</li>
+        <li><strong>Catalog Page:</strong> Left sidebar filters (by Brand & Category/Subcategory).</li>
+        <li><strong>Product Details:</strong> Dynamic specifications table, multi-angle photo gallery, features, and PDF downloads.</li>
+      </ul>
+    </div>
+
+    <div class="scope-card">
+      <h4>B. Admin Management Portal</h4>
+      <ul>
+        <li><strong>Admin Auth:</strong> Secure JWT authentication and role protection.</li>
+        <li><strong>Brand Master:</strong> Manage brands and upload logos to Azure Blob Storage.</li>
+        <li><strong>Category & Subcategory:</strong> Hierarchy, icons, and banner setup.</li>
+        <li><strong>Product Master:</strong> Rich dynamic specifications builder, multi-image uploader, and downloadable PDF datasheet manager.</li>
+        <li><strong>Enquiries Dashboard:</strong> Review, filter, and track customer quotation requests.</li>
+      </ul>
+    </div>
+
+    <div class="scope-card">
+      <h4>C. Backend API (.NET Clean Architecture)</h4>
+      <ul>
+        <li><strong>Clean Architecture:</strong> Domain, Application, Infrastructure, and API layers.</li>
+        <li><strong>CQRS & MediatR:</strong> Segregated Command and Query pipelines.</li>
+        <li><strong>PostgreSQL + EF Core:</strong> Relational schema with LINQ queries & migrations.</li>
+        <li><strong>Repository & Unit of Work:</strong> Clean abstracted data access.</li>
+        <li><strong>Automated Testing:</strong> xUnit unit and integration test suite.</li>
+      </ul>
+    </div>
+
+    <div class="scope-card">
+      <h4>D. Serverless Email & Cloud Integrations</h4>
+      <ul>
+        <li><strong>Azure Functions:</strong> Queue-triggered serverless email pipeline.</li>
+        <li><strong>Customer Confirmation:</strong> Automated branded quotation receipt email.</li>
+        <li><strong>Sales Team Alert:</strong> Instant lead email to internal sales inbox.</li>
+        <li><strong>SEO Dynamic Engine:</strong> Dynamic Title, OpenGraph tags, sitemap.xml, robots.txt, and Schema.org JSON-LD structured data.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3. Handover & Deliverables Checklist</h2>
+  <ul>
+    <li><strong>Complete Source Code:</strong> Backend (.NET Clean Architecture), Frontend (Angular SSR), and Azure Functions.</li>
+    <li><strong>Database Assets:</strong> PostgreSQL EF Core migrations and initial seeding scripts.</li>
+    <li><strong>Deployment Assets:</strong> Dockerfiles, CI/CD pipeline configs, and Swagger API docs.</li>
+  </ul>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page-break"></div>
+
+  <h2>4. Commercial Quotation (Full Code Delivery)</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">Item</th>
+        <th style="width: 67%;">Deliverable Module / Phase</th>
+        <th style="width: 25%; text-align: right;">Amount (INR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1.0</strong></td>
+        <td><strong>PostgreSQL Database Architecture & .NET Clean Architecture API Core</strong><br><small style="color: #64748b;">Schema design, EF Core migrations, Repository pattern, and CQRS foundation.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹26,000</td>
+      </tr>
+      <tr>
+        <td><strong>2.0</strong></td>
+        <td><strong>Master APIs (Brand, Category, Subcategory, Product, Blob Storage) & xUnit Suite</strong><br><small style="color: #64748b;">Full CRUD endpoints, Azure Blob integration, and automated unit test suite.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹35,000</td>
+      </tr>
+      <tr>
+        <td><strong>3.0</strong></td>
+        <td><strong>Admin Management Web Portal (Catalog & Enquiries Dashboard)</strong><br><small style="color: #64748b;">JWT login, brand/category management, product editor with spec builder & inquiry viewer.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹31,000</td>
+      </tr>
+      <tr>
+        <td><strong>4.0</strong></td>
+        <td><strong>Public Customer Portal & Angular SSR Frontend</strong><br><small style="color: #64748b;">Home page, sidebar catalog filters, dynamic product detail view & inquiry checkout cart.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹48,000</td>
+      </tr>
+      <tr>
+        <td><strong>5.0</strong></td>
+        <td><strong>Serverless Azure Functions Email Engine, WhatsApp Integration & SEO Setup</strong><br><small style="color: #64748b;">Queue-triggered automated email delivery, WhatsApp quick chat, OpenGraph & JSON-LD.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹20,000</td>
+      </tr>
+      <tr>
+        <td><strong>6.0</strong></td>
+        <td><strong>Cloud Deployment Setup, CI/CD Pipeline & Complete Source Code Handover</strong><br><small style="color: #64748b;">Azure resource configuration, deployment scripts, documentation & complete repository.</small></td>
+        <td style="text-align: right; font-weight: 600;">₹15,000</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2" style="text-align: right;">TOTAL PROJECT INVESTMENT:</td>
+        <td style="text-align: right; color: #0f766e; font-size: 10pt;">₹1,75,000 INR</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Milestone-Based Payment Schedule</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">Milestone Stage</th>
+        <th style="width: 50%;">Deliverable Trigger</th>
+        <th style="width: 10%; text-align: center;">%</th>
+        <th style="width: 15%; text-align: right;">Amount (INR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Milestone 1</strong></td>
+        <td>Project Initiation, Architecture Design & Clean Architecture Core Setup</td>
+        <td style="text-align: center;">25%</td>
+        <td style="text-align: right; font-weight: 600;">₹43,750</td>
+      </tr>
+      <tr>
+        <td><strong>Milestone 2</strong></td>
+        <td>Backend Master APIs + Admin Management Portal UI</td>
+        <td style="text-align: center;">25%</td>
+        <td style="text-align: right; font-weight: 600;">₹43,750</td>
+      </tr>
+      <tr>
+        <td><strong>Milestone 3</strong></td>
+        <td>Angular SSR Customer Web App + Product Catalog & Enquiry Cart</td>
+        <td style="text-align: center;">25%</td>
+        <td style="text-align: right; font-weight: 600;">₹43,750</td>
+      </tr>
+      <tr>
+        <td><strong>Milestone 4</strong></td>
+        <td>Azure Function Mailer, Final Deployment & Full Source Code Handover</td>
+        <td style="text-align: center;">25%</td>
+        <td style="text-align: right; font-weight: 600;">₹43,750</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2" style="text-align: right;">TOTAL:</td>
+        <td style="text-align: center;">100%</td>
+        <td style="text-align: right; color: #0f766e;">₹1,75,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>6. Microsoft Azure Cloud Hosting (Direct Client Billing)</h2>
+  <div class="callout-azure">
+    <strong>Direct Client Payment Clause:</strong> All Microsoft Azure Cloud infrastructure and hosting charges are <strong>paid directly by the Client to Microsoft Azure</strong> using the Client's corporate credit card on a monthly pay-as-you-go basis.
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Azure Resource</th>
+        <th>Sizing / Tier</th>
+        <th style="text-align: right;">Est. Monthly (INR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Azure Database for PostgreSQL</strong></td>
+        <td>Flexible Server (B1ms Burstable, 32GB Storage)</td>
+        <td style="text-align: right;">~₹1,800 – ₹2,500 / mo</td>
+      </tr>
+      <tr>
+        <td><strong>Azure App Service / Container Apps</strong></td>
+        <td>Linux Basic B1 / Free-Shared plan for API & Angular SSR</td>
+        <td style="text-align: right;">~₹1,000 – ₹1,800 / mo</td>
+      </tr>
+      <tr>
+        <td><strong>Azure Blob Storage & CDN</strong></td>
+        <td>Standard Hot/Cool storage for logos, product photos & PDFs</td>
+        <td style="text-align: right;">~₹250 – ₹450 / mo</td>
+      </tr>
+      <tr>
+        <td><strong>Azure Functions & Transactional Email</strong></td>
+        <td>Serverless Consumption (1 Million calls free) + SendGrid free tier</td>
+        <td style="text-align: right;">₹0 / mo</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2" style="text-align: right;">ESTIMATED TOTAL AZURE HOSTING (Billed to Client):</td>
+        <td style="text-align: right; color: #0369a1;">~₹3,050 – ₹4,750 / mo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>7. Support & Maintenance Terms</h2>
+  <div class="callout-box">
+    <strong>1 Year 100% FREE Ongoing Support:</strong> Includes 12 full months of post-launch technical support, bug fixing, database indexing, performance monitoring, and minor content adjustments at <strong>zero extra cost</strong>.
+  </div>
+  <p style="font-size: 7.8pt; color: #475569; margin: 2px 0 0 0;">
+    <strong>Post-Year 1 Policy:</strong> After 1 year, support for major feature developments, new module additions, or large architectural changes will be chargeable on an agreed estimate or optional annual maintenance contract (AMC).
+  </p>
+
+  <div class="signoff-section">
+    <table class="signoff-table">
+      <tr>
+        <td>
+          <strong style="color: #0f172a; font-size: 8pt;">Prepared By:</strong><br>
+          <span style="font-size: 7.5pt; color: #64748b;">Full-Stack Solutions Engineering</span>
+          <div class="sign-line">Authorized Developer Signature & Date</div>
+        </td>
+        <td>
+          <strong style="color: #0f172a; font-size: 8pt;">Accepted & Approved By:</strong><br>
+          <span style="font-size: 7.5pt; color: #64748b;">Power Diagnostics</span>
+          <div class="sign-line">Client Representative Signature & Date</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
