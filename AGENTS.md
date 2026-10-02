@@ -8,7 +8,8 @@
 ## C# Backend Architecture & File Standards
 - **Strict 1 Type Per File**: Every single C# file (`*.cs`) MUST contain strictly ONLY 1 type (1 class, 1 record, 1 interface, or 1 enum). Never place multiple classes, records, queries, commands, responses, handlers, or validators in a single file.
 - **No Company Entity**: Do not create or use a `Company` domain entity or repository. Company names in enquiries are simple string properties (`Enquiry.CompanyName`).
-- **Lightweight API Design**: Backend endpoints and handlers must only return minimal, lightweight DTOs selecting strictly necessary fields. All EF Core read queries must use `.AsNoTracking()` for optimal throughput and zero unnecessary overhead.
+- **Lightweight API Design**: Backend endpoints and handlers must only return minimal, tailored projection DTOs (e.g. `FeaturedProductDto`, `AuthorizedBrandDto`) selecting strictly necessary fields and avoiding heavy child collections on list queries. All EF Core read queries must use `.AsNoTracking()` for optimal throughput and zero unnecessary overhead.
+- **Direct Client ID Passing**: Foreign key and lookup IDs (e.g. `availabilityTypeId`, `statusId`, `brandId`, `categoryId`, `subcategoryId`) must be selected and passed directly from the frontend. Handlers must NOT query lookup tables to resolve or fallback IDs.
 - **Minimal Mutation Responses**: API responses for mutating operations must be minimal: return strictly only the generated/persisted ID (e.g. `long`) for POST, and empty / `204 NoContent` (`Result`) for PUT / PATCH / DELETE unless a specific need is there for additional data at the frontend.
 
 ## Frontend API Invocation Standards

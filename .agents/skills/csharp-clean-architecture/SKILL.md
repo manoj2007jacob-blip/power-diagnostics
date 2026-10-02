@@ -32,7 +32,8 @@ description: C# .NET 10 Clean Architecture standards and file organization guide
 - **FluentValidation**: Independent validator classes inheriting `AbstractValidator<TCommand>`.
 
 ## 4. Lightweight API Design & Performance
-- **Minimal DTOs**: Create dedicated DTOs (e.g. `AuthorizedBrandDto.cs`, `BrandDto.cs`) that project strictly the properties required for the target view.
+- **Minimal Projection DTOs**: Endpoints for lists, cards, or featured items (e.g. `GetFeaturedProducts`, `GetBrands`) must return dedicated, lightweight DTOs (e.g. `FeaturedProductDto.cs`, `AuthorizedBrandDto.cs`) that project strictly the minimal properties needed. Never query or include heavy child collections (documents, specifications, full descriptions) when only card summaries or basic fields are needed.
+- **Direct Client ID Passing (No Redundant Backend Resolution)**: Lookup and foreign key IDs (e.g. `availabilityTypeId`, `statusId`, `brandId`, `categoryId`, `subcategoryId`) must be selected and passed directly from the frontend. Handlers must NOT query lookups to fallback or guess IDs when saving commands.
 - **Minimal Mutation Responses**: API responses for PUT / POST / PATCH / DELETE must be minimal. Return strictly only the generated ID (`long` or `Guid`) for `POST`, and empty / `204 NoContent` (`Result`) for `PUT`, `PATCH`, and `DELETE` unless a specific need is there for additional data at the frontend.
 - **AsNoTracking**: All read queries across repositories and query handlers must use `.AsNoTracking()` to avoid unnecessary object tracking and optimize throughput.
 - **No Entity Leakage**: Never expose raw domain entities directly through controllers.

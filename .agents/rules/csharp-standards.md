@@ -16,6 +16,7 @@
    - `API/PowerDiagnostics.Api`: REST controllers dispatching requests to handlers via `IMessageBus` (WolverineFx).
 
 4. **Lightweight APIs & Performance**:
-   - Endpoints and handlers must return tailored, minimal DTOs containing only the fields required by consumers.
-   - Never serialize large domain entities or redundant child collections over the wire.
+   - Endpoints and handlers must return tailored, minimal projection DTOs (e.g. `FeaturedProductDto`) containing strictly the fields required by consumers, avoiding heavy child collections on list queries.
+   - Foreign key and lookup IDs (e.g. `availabilityTypeId`, `statusId`, `brandId`, `categoryId`, `subcategoryId`) must be selected and passed directly from the frontend; backend handlers must NOT query lookup tables to guess or fallback IDs.
+   - Never serialize raw domain entities or redundant child collections over the wire.
    - All read operations in repositories and query handlers must use `.AsNoTracking()` to eliminate EF tracking overhead and maximize query throughput.
