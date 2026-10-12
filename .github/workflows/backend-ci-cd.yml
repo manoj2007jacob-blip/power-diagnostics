@@ -35,6 +35,9 @@ jobs:
       - name: Build Solution (Release)
         run: dotnet build backend/PowerDiagnostics.slnx --configuration Release --no-restore
 
+      - name: Run Tests
+        run: dotnet test backend/PowerDiagnostics.slnx --configuration Release --no-build
+
       - name: Publish API Project (Self-Contained Linux x64)
         if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         run: >

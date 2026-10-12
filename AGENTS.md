@@ -14,7 +14,10 @@
 
 ## Frontend API Invocation Standards
 - **Lazy API Calls**: Never invoke HTTP requests or trigger eager `load*()` calls inside Angular service constructors.
-- **On-Demand & SSR Safe**: All API fetching must be triggered lazily inside consuming component lifecycles (e.g., `ngOnInit` with `isPlatformBrowser` guards). Use service-level cache flags to prevent redundant network roundtrips.
+- **On-Demand & SSR Safe**: All API fetching must be triggered lazily inside consuming component lifecycles (e.g., `ngOnInit`). Use service-level cache flags to prevent redundant network roundtrips.
+  - **SEO content renders on the server**: Public pages render with Angular SSR. Data that crawlers must see (product/article detail, catalogue & blog lists, home page content, related products, brands) MUST be fetched WITHOUT `isPlatformBrowser` guards so it is in the server HTML; the HTTP transfer cache hands those responses to the browser, so nothing is fetched twice.
+  - **Browser-only data**: Use `isPlatformBrowser` guards only for data with no SEO value or that depends on the visitor (lookups for form dropdowns, cart, auth/admin state) and for DOM/`window` APIs.
+  - **Missing content**: When a product/article does not exist, call `injectNotFoundStatus()` (`core/seo/not-found-status.ts`) so the server responds with HTTP 404, not a "soft 404" with status 200.
 - **Ambient & Global Modal Deferral**: Components rendered globally in `app.html` (such as `QuickConnectModalComponent`) MUST NEVER trigger API calls on initial page load / `ngOnInit()`. Defer API calls until the user explicitly opens or interacts with the modal (e.g. Bootstrap `show.bs.modal` event, click, or focus).
 
 
